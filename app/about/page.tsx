@@ -1,8 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
 import type { NextPage } from "next";
 
 // Animation variants
@@ -33,16 +31,7 @@ const fadeInRight = {
   }
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-};
+
 
 const itemFadeIn = {
   hidden: { opacity: 0, y: 20 },

@@ -148,7 +148,7 @@ export default function ClientLayout({
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-white">Let's Chat</h3>
+                <h3 className="font-semibold text-lg text-white">Let&apos;s Chat</h3>
                 <Link
                   href="https://wa.me/message/IOLXVXKLJ4SLM1"
                   target="_blank"
@@ -163,7 +163,7 @@ export default function ClientLayout({
               </div>
             </div>
             <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-              <p>Fly Your Tech's, All Rights Reserved.</p>
+              <p>Fly Your Tech&apos;s, All Rights Reserved.</p>
             </div>
           </div>
         </footer>
