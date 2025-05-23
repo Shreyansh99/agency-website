@@ -9,8 +9,8 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../ui/carousel"
-import { Card, CardContent } from "../ui/card"
+} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
 
 const testimonials = [
   {

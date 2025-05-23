@@ -6,7 +6,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
 
-import { Button } from "./ui/button"
+import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,12 +15,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "./ui/navigation-menu"
+} from "@/components/ui/navigation-menu"
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "./ui/sheet"
+} from "@/components/ui/sheet"
 import { ThemeToggle } from "./theme-toggle"
 
 const services = [

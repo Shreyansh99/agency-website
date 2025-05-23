@@ -7,7 +7,7 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei"
 import { ArrowRight } from "lucide-react"
 
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 
 const AnimatedSphere = () => {
   const meshRef = useRef<THREE.Mesh>(null)
