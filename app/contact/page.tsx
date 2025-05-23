@@ -1,14 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" }
   }
@@ -16,8 +16,8 @@ const fadeIn = {
 
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.6, ease: "easeOut" }
   }
@@ -25,8 +25,8 @@ const fadeInLeft = {
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     transition: { duration: 0.6, ease: "easeOut" }
   }
@@ -65,10 +65,11 @@ const serviceOptions = [
   'Other'
 ];
 
-export default function ContactPage() {
+// Component that uses search params
+function ContactForm() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -76,19 +77,19 @@ export default function ContactPage() {
     service: serviceParam || '',
     message: '',
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -100,7 +101,7 @@ export default function ContactPage() {
         service: '',
         message: '',
       });
-      
+
       // Reset submission status after 5 seconds
       setTimeout(() => {
         setIsSubmitted(false);
@@ -109,38 +110,10 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 md:py-28 lg:py-32 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="max-w-4xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-          >
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
-              variants={itemFadeIn}
-            >
-              <span className="block text-white">Get in</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Touch</span>
-            </motion.h1>
-            <motion.p 
-              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
-              variants={itemFadeIn}
-            >
-              Have a project in mind? Let's discuss how we can help you achieve your goals.
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section className="py-16 md:py-24 relative">
+    <section className="py-16 md:py-24 relative">
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <motion.div 
+            <motion.div
               className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-8"
               initial="hidden"
               animate="visible"
@@ -183,12 +156,12 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              
+
               <h2 className="text-2xl font-bold text-white mt-12 mb-6">Follow Us</h2>
               <div className="flex space-x-4">
-                <motion.a 
-                  href="https://twitter.com/flyyourtech" 
-                  target="_blank" 
+                <motion.a
+                  href="https://twitter.com/flyyourtech"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
                   whileHover={{ y: -3 }}
@@ -198,9 +171,9 @@ export default function ContactPage() {
                     <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
                   </svg>
                 </motion.a>
-                <motion.a 
-                  href="https://linkedin.com/company/flyyourtech" 
-                  target="_blank" 
+                <motion.a
+                  href="https://linkedin.com/company/flyyourtech"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
                   whileHover={{ y: -3 }}
@@ -210,9 +183,9 @@ export default function ContactPage() {
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
                   </svg>
                 </motion.a>
-                <motion.a 
-                  href="https://facebook.com/flyyourtech" 
-                  target="_blank" 
+                <motion.a
+                  href="https://facebook.com/flyyourtech"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
                   whileHover={{ y: -3 }}
@@ -222,9 +195,9 @@ export default function ContactPage() {
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
                   </svg>
                 </motion.a>
-                <motion.a 
-                  href="https://instagram.com/flyyourtech" 
-                  target="_blank" 
+                <motion.a
+                  href="https://instagram.com/flyyourtech"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
                   whileHover={{ y: -3 }}
@@ -236,8 +209,8 @@ export default function ContactPage() {
                 </motion.a>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-8"
               initial="hidden"
               animate="visible"
@@ -245,7 +218,7 @@ export default function ContactPage() {
             >
               <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
               {isSubmitted ? (
-                <motion.div 
+                <motion.div
                   className="bg-green-500/20 border border-green-500/30 rounded-lg p-6 text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -263,12 +236,12 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                    <input 
-                      type="text" 
-                      id="name" 
-                      name="name" 
-                      value={formData.name} 
-                      onChange={handleChange} 
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                       placeholder="Your name"
                       required
@@ -277,12 +250,12 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={formData.email} 
-                        onChange={handleChange} 
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                         placeholder="Your email"
                         required
@@ -290,12 +263,12 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">Phone (Optional)</label>
-                      <input 
-                        type="tel" 
-                        id="phone" 
-                        name="phone" 
-                        value={formData.phone} 
-                        onChange={handleChange} 
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                         placeholder="Your phone number"
                       />
@@ -303,11 +276,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">Service Interested In</label>
-                    <select 
-                      id="service" 
-                      name="service" 
-                      value={formData.service} 
-                      onChange={handleChange} 
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                       required
                     >
@@ -319,18 +292,18 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                    <textarea 
-                      id="message" 
-                      name="message" 
-                      value={formData.message} 
-                      onChange={handleChange} 
-                      rows={5} 
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={5}
                       className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                       placeholder="Tell us about your project"
                       required
                     ></textarea>
                   </div>
-                  <motion.button 
+                  <motion.button
                     type="submit"
                     className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-lg flex items-center justify-center"
                     whileHover={{ scale: 1.03 }}
@@ -355,6 +328,42 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-20 md:py-28 lg:py-32 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+              variants={itemFadeIn}
+            >
+              <span className="block text-white">Get in</span>
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">Touch</span>
+            </motion.h1>
+            <motion.p
+              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+              variants={itemFadeIn}
+            >
+              Have a project in mind? Let&apos;s discuss how we can help you achieve your goals.
+            </motion.p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Form Section with Suspense */}
+      <Suspense fallback={<div className="py-16 md:py-24 text-center text-white">Loading...</div>}>
+        <ContactForm />
+      </Suspense>
     </div>
   );
 }
