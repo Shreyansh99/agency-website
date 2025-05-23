@@ -62,8 +62,8 @@ export default function HeroSection() {
               <span className="block text-primary">Digital</span>
               <span className="block">Revolution</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
-              Building innovative solutions for tomorrow's challenges. Transforming ideas into powerful digital experiences.
+            <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Building innovative solutions for tomorrow&apos;s challenges. Transforming ideas into powerful digital experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button asChild size="lg" className="rounded-full">

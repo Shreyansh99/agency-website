@@ -76,23 +76,23 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-16 md:py-24">
-      <div className="container">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-sm font-semibold text-primary mb-2">Our Expertise</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-6">Our Services</h3>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-xs sm:text-sm font-semibold text-primary mb-2 uppercase tracking-wider">Our Expertise</h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Our Services</h3>
+          <p className="text-muted-foreground max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
             We offer a comprehensive suite of digital solutions designed to transform your business and drive exceptional results.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -102,18 +102,18 @@ export default function ServicesSection() {
               viewport={{ once: true }}
             >
               <Link href={service.href} className="block h-full">
-                <Card className="h-full transition-all hover:shadow-md hover:border-primary/50">
-                  <CardHeader>
-                    <div className="text-primary mb-4">{service.icon}</div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50 hover:scale-105">
+                  <CardHeader className="pb-4">
+                    <div className="text-primary mb-3 sm:mb-4">{service.icon}</div>
+                    <CardTitle className="text-lg sm:text-xl">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground">
+                  <CardContent className="pb-4">
+                    <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                       {service.description}
                     </CardDescription>
                   </CardContent>
-                  <CardFooter>
-                    <p className="text-sm text-muted-foreground">
+                  <CardFooter className="pt-0">
+                    <p className="text-xs sm:text-sm text-muted-foreground">
                       {service.projects} Projects Completed
                     </p>
                   </CardFooter>

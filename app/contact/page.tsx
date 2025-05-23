@@ -110,11 +110,11 @@ function ContactForm() {
   };
 
   return (
-    <section className="py-16 md:py-24 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <motion.div
-              className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-8"
+              className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-6 sm:p-8 order-2 lg:order-1"
               initial="hidden"
               animate="visible"
               variants={fadeInLeft}
@@ -211,12 +211,12 @@ function ContactForm() {
             </motion.div>
 
             <motion.div
-              className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-8"
+              className="backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 rounded-lg p-6 sm:p-8 order-1 lg:order-2"
               initial="hidden"
               animate="visible"
               variants={fadeInRight}
             >
-              <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Send Us a Message</h2>
               {isSubmitted ? (
                 <motion.div
                   className="bg-green-500/20 border border-green-500/30 rounded-lg p-6 text-center"
@@ -233,7 +233,7 @@ function ContactForm() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name</label>
                     <input
@@ -242,12 +242,12 @@ function ContactForm() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-blue-900/20 border border-blue-500/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-sm sm:text-base"
                       placeholder="Your name"
                       required
                     />
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">Email</label>
                       <input
