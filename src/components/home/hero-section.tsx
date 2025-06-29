@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32 min-h-screen flex items-center justify-center" style={{ minHeight: '100vh' }}>
+    <section className="relative overflow-hidden py-10 md:py-28 lg:py-32 min-h-[80vh] md:min-h-screen flex items-center justify-center" style={{ minHeight: '80vh' }}>
       {/* Background image */}
       <div className="absolute inset-0 -z-20">
         <img
