@@ -41,7 +41,17 @@ const portfolioItems = [
 
 export default function PortfolioSection() {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-16 md:py-24 relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src="/background.jpg"
+          alt="Background"
+          className="w-full h-full object-cover object-center"
+          style={{ minHeight: '100%', minWidth: '100%' }}
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
