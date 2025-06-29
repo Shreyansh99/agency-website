@@ -59,7 +59,7 @@ const AboutPage: NextPage = () => {
               variants={itemFadeIn}
             >
               <span className="block text-white">About</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">FlyYourTech</span>
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">WebNexaAI</span>
             </motion.h1>
             <motion.p
               className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
@@ -100,7 +100,7 @@ const AboutPage: NextPage = () => {
                 <h2 className="text-sm font-semibold text-blue-400 mb-2">Our Story</h2>
                 <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">From Vision to Digital Reality</h3>
                 <p className="text-gray-300 mb-4">
-                  Founded in 2020, FlyYourTech began with a simple mission: to help businesses harness the power of technology to grow and thrive in the digital age.
+                  Founded in 2020, WebNexaAI began with a simple mission: to help businesses harness the power of technology to grow and thrive in the digital age.
                 </p>
                 <p className="text-gray-300 mb-8">
                   What started as a small team of passionate developers has grown into a full-service digital agency, delivering innovative solutions to clients worldwide.

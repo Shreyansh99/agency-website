@@ -66,7 +66,7 @@ export default function MotionCursor() {
     <>
       {/* Main cursor dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-blue-400 z-[9999] pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#E0E0E0] z-[9999] pointer-events-none mix-blend-difference"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -84,7 +84,7 @@ export default function MotionCursor() {
 
       {/* Cursor ring */}
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-blue-400 z-[9999] pointer-events-none mix-blend-difference"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-[#E0E0E0] z-[9999] pointer-events-none mix-blend-difference"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -103,7 +103,7 @@ export default function MotionCursor() {
 
       {/* Subtle trail effect */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 rounded-full bg-blue-400/20 z-[9998] pointer-events-none"
+        className="fixed top-0 left-0 w-3 h-3 rounded-full bg-[#E0E0E0]/20 z-[9998] pointer-events-none"
         style={{
           x: cursorX,
           y: cursorY,

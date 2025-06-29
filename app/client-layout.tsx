@@ -25,62 +25,60 @@ export default function ClientLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-gray-950 text-gray-100`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-background text-foreground`}>
         {/* Custom Motion Cursor */}
         <CursorWrapper />
 
-        {/* Three.js Background */}
-        <BackgroundWrapper />
+        {/* Main Background Image */}
+        <div
+          className="fixed inset-0 z-[-10] bg-no-repeat"
+          style={{
+            backgroundImage: 'url(/background.jpg)',
+            backgroundSize: 'auto',
+          }}
+        ></div>
 
-        {/* Modern gradient background */}
-        <div className="fixed inset-0 z-[-8] bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"></div>
+        {/* Dark base overlay */}
+        <div className="fixed inset-0 z-[-9] bg-black/80"></div>
 
-        {/* Animated gradient orbs */}
-        <div className="fixed inset-0 z-[-7] overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
-        </div>
+        {/* Additional atmospheric gradient */}
+        <div className="fixed inset-0 z-[-7] bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+
+        {/* Subtle warm glow effect */}
+        <div className="fixed inset-0 z-[-6] bg-gradient-radial from-accent/10 via-transparent to-background/60"></div>
 
         {/* Subtle grid pattern overlay */}
-        <div className="fixed inset-0 z-[-6] opacity-[0.02] pointer-events-none" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+        <div className="fixed inset-0 z-[-5] opacity-[0.02] pointer-events-none" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, var(--accent) 1px, transparent 0)`,
           backgroundSize: '50px 50px'
         }}></div>
 
-        {/* Gradient overlay for better text readability */}
-        <div className="fixed inset-0 z-[-5] bg-gradient-to-b from-slate-900/80 via-transparent to-slate-900/80 pointer-events-none"></div>
+        {/* Additional background effects */}
+        <BackgroundWrapper />
 
         {/* Enhanced Header */}
-        <header className="sticky top-0 z-50 w-full border-b border-gray-800/50 bg-gradient-to-r from-slate-900/90 via-blue-950/90 to-slate-900/90 backdrop-blur-md">
-          <div className="container mx-auto px-4 flex h-16 items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xs">FYT</span>
-              </div>
-              <div className="font-bold text-xl">
-                <span className="text-blue-400">FLY</span> Your Tech
-              </div>
+        <header className="w-full flex justify-center mt-6">
+          <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-[#181818] border border-[#444] rounded-full shadow-none">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
+              <img src="/logo.png" alt="WebNexaAI Logo" className="w-8 h-8 rounded-full" />
+              <span className="font-extrabold">WebNexaAI</span>
             </Link>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-200 hover:text-blue-400 transition-colors">Home</Link>
-              <Link href="/about" className="text-gray-200 hover:text-blue-400 transition-colors">About</Link>
-              <Link href="/services" className="text-gray-200 hover:text-blue-400 transition-colors">Services</Link>
-              <Link href="/work" className="text-gray-200 hover:text-blue-400 transition-colors">Our Work</Link>
-              <Link href="/blog" className="text-gray-200 hover:text-blue-400 transition-colors">Blog</Link>
-              <Link href="/contact" className="text-gray-200 hover:text-blue-400 transition-colors">Contact</Link>
-            </nav>
-            <div className="md:flex items-center space-x-4 hidden">
-              <Link href="/get-started" className="inline-flex items-center justify-center px-4 py-2 border border-blue-500 text-sm font-medium rounded-md text-blue-400 hover:bg-blue-500/10 transition-colors">
-                Get Started
-              </Link>
+            {/* Center Links */}
+            <div className="flex items-center space-x-8 mx-8">
+              <Link href="/" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Home</Link>
+              <Link href="/about" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">About</Link>
+              <Link href="/services" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Services</Link>
+              <Link href="/work" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Our Work</Link>
+              <Link href="/blog" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Blog</Link>
+              <Link href="/contact" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Contact</Link>
             </div>
-            <button className="md:hidden text-gray-200">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+            {/* Let's Talk Button */}
+            <Link href="/contact" className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]">
+              Let&apos;s Talk
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </Link>
+          </nav>
         </header>
 
         <main className="flex-grow">
@@ -88,82 +86,80 @@ export default function ClientLayout({
         </main>
 
         {/* Enhanced Footer */}
-        <footer className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border-t border-gray-800/50 relative">
+        <footer className="bg-background border-t border-border relative">
           <div className="container mx-auto px-4 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="space-y-4">
                 <Link href="/" className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-xs">FYT</span>
-                  </div>
-                  <div className="font-bold text-xl">
-                    <span className="text-blue-400">FLY</span> Your Tech
+                  <img src="/logo.png" alt="WebNexaAI Logo" className="w-8 h-8 rounded-full" />
+                  <div className="font-bold text-xl text-foreground">
+                    <span className="text-accent">WebNexaAI</span>
                   </div>
                 </Link>
-                <p className="text-gray-400">
+                <p className="text-secondary">
                   An influential creative agency. Gets IT Solutions For Expert Consultants
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-white">Quick Links</h3>
+                <h3 className="font-semibold text-lg text-foreground">Quick Links</h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link href="/about" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/about" className="text-secondary hover:text-accent transition-colors">
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/services" className="text-secondary hover:text-accent transition-colors">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link href="/work" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/work" className="text-secondary hover:text-accent transition-colors">
                       Our Work
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/blog" className="text-secondary hover:text-accent transition-colors">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/contact" className="text-secondary hover:text-accent transition-colors">
                       Contact Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className="text-gray-400 hover:text-blue-400 transition-colors">
+                    <Link href="/terms" className="text-secondary hover:text-accent transition-colors">
                       Terms & Policies
                     </Link>
                   </li>
                 </ul>
               </div>
               <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-white">Contact</h3>
-                <p className="text-gray-400">contact@flyyourtech.com</p>
-                <p className="text-gray-400">
+                <h3 className="font-semibold text-lg text-foreground">Contact</h3>
+                <p className="text-secondary">contact@webnexaai.com</p>
+                <p className="text-secondary">
                   Building 56, Ward 2, Amarpatan Road,<br />
                   Ramnagar, Satna, (M.P), INDIA
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="font-semibold text-lg text-white">Let&apos;s Chat</h3>
+                <h3 className="font-semibold text-lg text-foreground">Let&apos;s Chat</h3>
                 <Link
                   href="https://wa.me/message/IOLXVXKLJ4SLM1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 bg-blue-500/20 border border-blue-500 text-blue-400 rounded-md hover:bg-blue-500/30 transition-colors"
+                  className="inline-block px-4 py-2 bg-accent/20 border border-accent text-accent rounded-md hover:bg-accent/30 transition-colors"
                 >
                   WhatsApp
                 </Link>
-                <p className="text-gray-400 mt-4">
+                <p className="text-secondary mt-4">
                   GST REGISTRATION NUMBER: 23DEOPG6721R1ZX
                 </p>
               </div>
             </div>
-            <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-              <p>Fly Your Tech&apos;s, All Rights Reserved.</p>
+            <div className="mt-12 pt-8 border-t border-border text-center text-sm text-secondary">
+              <p>WebNexaAI&apos;s, All Rights Reserved.</p>
             </div>
           </div>
         </footer>

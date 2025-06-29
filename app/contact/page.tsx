@@ -140,7 +140,7 @@ function ContactForm() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-white">Email</h3>
-                    <p className="text-gray-300">info@flyyourtech.com</p>
+                    <p className="text-gray-300">info@webnexaai.com</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -160,7 +160,7 @@ function ContactForm() {
               <h2 className="text-2xl font-bold text-white mt-12 mb-6">Follow Us</h2>
               <div className="flex space-x-4">
                 <motion.a
-                  href="https://twitter.com/flyyourtech"
+                  href="https://twitter.com/webnexaai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
@@ -172,7 +172,7 @@ function ContactForm() {
                   </svg>
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/company/flyyourtech"
+                  href="https://linkedin.com/company/webnexaai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
@@ -184,7 +184,7 @@ function ContactForm() {
                   </svg>
                 </motion.a>
                 <motion.a
-                  href="https://facebook.com/flyyourtech"
+                  href="https://facebook.com/webnexaai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"
@@ -196,7 +196,7 @@ function ContactForm() {
                   </svg>
                 </motion.a>
                 <motion.a
-                  href="https://instagram.com/flyyourtech"
+                  href="https://instagram.com/webnexaai"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 hover:bg-blue-500/30 transition-colors"

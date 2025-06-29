@@ -18,28 +18,28 @@ export default function Footer() {
             className="space-y-4"
           >
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="FlyYourTech Logo" width={40} height={40} />
+              <Image src="/logo.png" alt="WebNexaAI Logo" width={40} height={40} className="rounded-full" />
               <div className="font-bold text-xl">
-                <span className="text-primary">FLY</span> Your Tech
+                <span className="text-primary">WebNexaAI</span>
               </div>
             </Link>
             <p className="text-muted-foreground">
               An influential creative agency. Gets IT Solutions For Expert Consultants
             </p>
             <div className="flex space-x-4">
-              <Link href="https://www.instagram.com/flyyourtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://www.instagram.com/webnexaai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="https://www.linkedin.com/company/flyyourtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://www.linkedin.com/company/webnexaai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="https://x.com/flyyourtech/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://x.com/webnexaai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
                 <span className="sr-only">Twitter</span>
               </Link>
-              <Link href="https://www.facebook.com/profile.php?id=61564327175573" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://www.facebook.com/webnexaai" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
             className="space-y-4"
           >
             <h3 className="font-semibold text-lg">Contact</h3>
-            <p className="text-muted-foreground">contact@flyyourtech.com</p>
+            <p className="text-muted-foreground">contact@webnexaai.com</p>
             <p className="text-muted-foreground">
               Building 56, Ward 2, Amarpatan Road,<br />
               Ramnagar, Satna, (M.P), INDIA
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>Fly Your Tech&apos;s, All Rights Reserved.</p>
+          <p>WebNexaAI&apos;s, All Rights Reserved.</p>
         </div>
       </div>
     </footer>

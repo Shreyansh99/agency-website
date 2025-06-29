@@ -15,19 +15,7 @@ const CSSBackground = dynamic(
 )
 
 export default function BackgroundWrapper() {
-  const [useThreeJS, setUseThreeJS] = useState(true)
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-    // Check if device has good performance for Three.js
-    const hasGoodPerformance = window.navigator.hardwareConcurrency > 4
-    setUseThreeJS(hasGoodPerformance)
-  }, [])
-
-  if (!isClient) {
-    return <CSSBackground />
-  }
-
-  return useThreeJS ? <ThreeBackground /> : <CSSBackground />
+  return (
+    <div className="fixed inset-0 -z-10 bg-no-repeat" style={{ backgroundImage: 'url(/background.jpg)', backgroundSize: 'auto' }} />
+  )
 }

@@ -32,7 +32,7 @@ const FloatingParticle = ({
   return (
     <mesh ref={meshRef} position={position}>
       <circleGeometry args={[size, 6]} />
-      <meshBasicMaterial color={color} transparent opacity={0.4} />
+      <meshBasicMaterial color={color} transparent opacity={0.2} />
     </mesh>
   )
 }
@@ -137,7 +137,7 @@ const GeometricShape = ({
   return (
     <mesh ref={meshRef} position={position}>
       {renderGeometry()}
-      <meshBasicMaterial color={color} transparent opacity={0.15} wireframe />
+      <meshBasicMaterial color={color} transparent opacity={0.08} wireframe />
     </mesh>
   )
 }
@@ -156,6 +156,21 @@ const Scene = () => {
 export default function ThreeBackground() {
   return (
     <div className="fixed inset-0 -z-10">
+      {/* Background image with dark overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/background.jpg)',
+        }}
+      ></div>
+
+      {/* Dark overlay to maintain dark theme */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+      {/* Additional gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-950/60 to-indigo-950/80"></div>
+
+      {/* Three.js Canvas with transparent background */}
       <Canvas
         camera={{ position: [0, 0, 15], fov: 75 }}
         dpr={[1, 1.5]} // Limit pixel ratio for better performance
@@ -165,9 +180,11 @@ export default function ThreeBackground() {
           alpha: true
         }}
       >
-        <color attach="background" args={['#0f172a']} />
         <Scene />
       </Canvas>
+
+      {/* Top and bottom fade for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-transparent to-slate-900/90 pointer-events-none"></div>
     </div>
   )
 }

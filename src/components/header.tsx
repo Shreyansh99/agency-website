@@ -38,144 +38,25 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex-shrink-0"
-          >
-            <Link href="/" className="flex items-center space-x-2">
-              <Image src="/logo.png" alt="FlyYourTech Logo" width={32} height={32} className="sm:w-10 sm:h-10" />
-              <div className="font-bold text-lg sm:text-xl">
-                <span className="text-primary">FLY</span> Your Tech
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-2 xl:space-x-4">
-            <NavigationMenu>
-              <NavigationMenuList className="space-x-1">
-                <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Home
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/about" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      About
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm">Services</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[300px] gap-2 p-3 md:w-[400px] md:grid-cols-2 lg:w-[500px]">
-                      {services.map((service) => (
-                        <li key={service.name}>
-                          <NavigationMenuLink asChild>
-                            <Link
-                              href={service.href}
-                              className="block select-none space-y-1 rounded-md p-2 text-sm leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            >
-                              <div className="font-medium leading-none">{service.name}</div>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/blog" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Blog
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/portfolio" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Portfolio
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Contact
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-            <div className="flex items-center space-x-2">
-              <ThemeToggle />
-              <Button asChild size="sm">
-                <Link href="/get-started">Get Started</Link>
-              </Button>
-            </div>
-          </div>
-
-          {/* Mobile Navigation */}
-          <div className="lg:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[350px]">
-                <div className="flex flex-col space-y-6 mt-8">
-                  <Link href="/" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-                    Home
-                  </Link>
-                  <Link href="/about" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-                    About
-                  </Link>
-                  <div>
-                    <div className="text-lg font-medium mb-3">Our Services</div>
-                    <div className="pl-4 flex flex-col space-y-3">
-                      {services.map((service) => (
-                        <Link
-                          key={service.name}
-                          href={service.href}
-                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  <Link href="/blog" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-                    Blog
-                  </Link>
-                  <Link href="/portfolio" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-                    Portfolio
-                  </Link>
-                  <Link href="/contact" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>
-                    Contact
-                  </Link>
-                  <Button asChild className="mt-6 w-full">
-                    <Link href="/get-started" onClick={() => setIsOpen(false)}>
-                      Get Started
-                    </Link>
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+    <header className="w-full flex justify-center mt-6">
+      <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-background/90 border border-border rounded-full shadow-none backdrop-blur-md">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-foreground">
+          <Image src="/logo.png" alt="WebNexaAI Logo" width={32} height={32} className="rounded-full" />
+          <span className="font-extrabold">WebNexaAI</span>
+        </Link>
+        {/* Center Links */}
+        <div className="flex items-center space-x-8 mx-8">
+          <Link href="/services" className="text-secondary hover:text-foreground transition-colors font-medium">Services</Link>
+          <Link href="/process" className="text-secondary hover:text-foreground transition-colors font-medium">Process</Link>
+          <Link href="/solutions" className="text-secondary hover:text-foreground transition-colors font-medium">Solutions</Link>
         </div>
-      </div>
+        {/* Let's Talk Button */}
+        <Link href="/contact" className="btn-glow-border flex items-center px-4 py-2 text-white font-medium transition-all duration-300 hover:scale-105 relative z-10">
+          Let&apos;s Talk
+          <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+        </Link>
+      </nav>
     </header>
   )
 }

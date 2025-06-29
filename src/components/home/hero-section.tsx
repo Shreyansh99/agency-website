@@ -35,7 +35,17 @@ const AnimatedSphere = () => {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32">
+    <section className="relative overflow-hidden py-20 md:py-28 lg:py-32 min-h-screen" style={{ minHeight: '100vh' }}>
+      {/* Background image */}
+      <div className="absolute inset-0 -z-20">
+        <img
+          src="/background.jpg"
+          alt="Background"
+          className="w-full h-full object-cover object-center"
+          style={{ minHeight: '100%', minWidth: '100%' }}
+        />
+        <div className="absolute inset-0 bg-black/60" /> {/* Optional: dark overlay for readability */}
+      </div>
       {/* Background decorative elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl" aria-hidden="true">
@@ -48,7 +58,6 @@ export default function HeroSection() {
           />
         </div>
       </div>
-
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
@@ -58,12 +67,10 @@ export default function HeroSection() {
             className="text-center lg:text-left"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-              <span className="block">Powering</span>
-              <span className="block text-primary">Digital</span>
-              <span className="block">Revolution</span>
+              We help businesses scale and automate with AI.
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Building innovative solutions for tomorrow&apos;s challenges. Transforming ideas into powerful digital experiences.
+              From high-performance websites to custom AI agents and smart marketing systems — we build everything you need to grow on autopilot.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button asChild size="lg" className="rounded-full">
@@ -73,7 +80,6 @@ export default function HeroSection() {
               </Button>
             </div>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

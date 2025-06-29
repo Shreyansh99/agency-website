@@ -42,7 +42,7 @@ export default function AboutSection() {
               <h2 className="text-sm font-semibold text-primary mb-2">About Us</h2>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">Leading IT Solutions & Digital Services Provider</h3>
               <p className="text-muted-foreground mb-8">
-                FlyYourTech is a premier technology solutions provider, offering innovative digital services and custom software solutions. Our expert team delivers high-quality, scalable solutions that empower businesses to thrive in the digital age.
+                WebNexaAI is a premier technology solutions provider, offering innovative digital services and custom software solutions. Our expert team delivers high-quality, scalable solutions that empower businesses to thrive in the digital age.
               </p>
             </div>
 
