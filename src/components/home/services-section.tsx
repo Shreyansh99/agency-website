@@ -12,7 +12,8 @@ import {
   Smartphone,
   Bitcoin,
   MessageSquare,
-  LayoutDashboard
+  LayoutDashboard,
+  ArrowRight
 } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -23,35 +24,35 @@ const services = [
     title: "AI Automation",
     description: "Automate operations & save time\nWe build AI agents and backend workflows that take care of repetitive tasks — from sales alerts to internal processes.",
     stat: "25+ AI agents deployed",
-    href: "/services"
+    href: "/ourportfolio"
   },
   {
     icon: <MessageSquare className="h-8 w-8" />,
     title: "AI Chatbots & Agents",
     description: "24/7 support that actually talks\nCustom GPT-powered bots that chat, guide, qualify, and book — just like a real team member.",
     stat: "Used by 20+ brands",
-    href: "/services"
+    href: "/ourportfolio"
   },
   {
     icon: <TrendingUp className="h-8 w-8" />,
     title: "AI Marketing Funnels",
     description: "Scale your reach on autopilot\nWe combine Meta ads, AI-generated copy, and automated follow-ups to drive predictable, scalable growth.",
     stat: "30% average increase in ROAS",
-    href: "/services"
+    href: "/ourportfolio"
   },
   {
     icon: <Globe className="h-8 w-8" />,
     title: "Web Design & Development",
     description: "Lightning-fast sites, built for conversion\nNext.js websites optimized for SEO, mobile, and speed — designed to look great and convert better.",
     stat: "50+ websites launched",
-    href: "/services"
+    href: "/ourportfolio"
   },
   {
     icon: <LayoutDashboard className="h-8 w-8" />,
     title: "Custom CRM & Automation Dashboards",
     description: "All-in-one growth control panels\nCustom CRMs and dashboards that help you track leads, automate workflows, and grow with clarity.",
     stat: "10+ businesses scaled with internal tools",
-    href: "/services"
+    href: "/ourportfolio"
   }
 ]
 
@@ -73,33 +74,26 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              whileHover={{ scale: 1.015, boxShadow: "0 2px 16px #38bdf8" }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="flex flex-col justify-between h-full min-h-[320px] rounded-2xl bg-[#181926]/80 border border-[#38bdf8]/20 shadow-lg overflow-hidden p-6 group relative"
             >
-              <Link href={service.href} className="block h-full">
-                <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50 hover:scale-105">
-                  <CardHeader className="pb-4">
-                    <div className="text-primary mb-3 sm:mb-4">{service.icon}</div>
-                    <CardTitle className="text-lg sm:text-xl">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="pb-4">
-                    <CardDescription className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                  <CardFooter className="pt-0">
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      {service.stat}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </Link>
+              <div className="absolute right-4 bottom-4 opacity-10 pointer-events-none select-none">
+                {service.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4 whitespace-pre-line">{service.description}</p>
+              </div>
+              <a href={service.href} className="inline-flex items-center text-cyan-400 font-semibold group-hover:underline mt-auto">
+                Learn More <ArrowRight className="ml-1 w-4 h-4" />
+              </a>
             </motion.div>
           ))}
         </div>
