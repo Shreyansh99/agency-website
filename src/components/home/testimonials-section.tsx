@@ -90,18 +90,17 @@ export default function TestimonialsSection() {
   }, [emblaApi, isHovered]);
 
   return (
-    <section className="pt-2 pb-6 md:pt-4 md:pb-10 relative overflow-hidden">
+    <section className="pt-4 pb-6 md:pt-6 md:pb-8 relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-4"
+          className="text-center mb-2"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Clients Testimonials</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-1">Clients Testimonials</h2>
         </motion.div>
-
         <Carousel
           className="w-full max-w-5xl mx-auto"
           setApi={setEmblaApi}
@@ -113,41 +112,41 @@ export default function TestimonialsSection() {
             {testimonials.map((testimonial, idx) => (
               <CarouselItem key={testimonial.id}>
                 <Card className="border-none bg-transparent">
-                  <CardContent className="p-4 md:p-5">
+                  <CardContent className="p-3 md:p-4">
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, type: 'spring', delay: 0.1 * idx }}
-                      className="flex flex-col items-center text-center space-y-4"
+                      className="flex flex-col items-center text-center space-y-3"
                     >
                       {/* Highlight line */}
-                      <div className="text-blue-400 text-sm md:text-base font-semibold mb-1">{testimonial.highlight}</div>
-                      <div className="text-primary mb-1">
-                        <Quote className="h-8 w-8 rotate-180" />
+                      <div className="text-blue-400 text-xs md:text-sm font-semibold mb-0.5">{testimonial.highlight}</div>
+                      <div className="text-primary mb-0.5">
+                        <Quote className="h-7 w-7 rotate-180" />
                       </div>
-                      <p className="text-lg md:text-xl italic font-semibold text-white text-center leading-snug mb-1 drop-shadow-md" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>
+                      <p className="text-base md:text-lg italic font-semibold text-white text-center leading-snug mb-0.5 drop-shadow-md" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>
                         {`"${testimonial.content}"`}
                       </p>
-                      <div className="w-12 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full mx-auto mb-1" />
+                      <div className="w-10 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full mx-auto mb-0.5" />
                       <div className="flex flex-col items-center">
                         {/* Profile photo or stylized avatar */}
                         {testimonial.profilePhoto ? (
-                          <img src={testimonial.profilePhoto} alt={testimonial.author} className="w-12 h-12 rounded-full border-2 border-blue-400 mb-2 object-cover" />
+                          <img src={testimonial.profilePhoto} alt={testimonial.author} className="w-10 h-10 rounded-full border-2 border-blue-400 mb-1 object-cover" />
                         ) : (
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center mb-2">
-                            <span className="text-lg font-bold text-white">{testimonial.author.charAt(0)}</span>
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center mb-1">
+                            <span className="text-base font-bold text-white">{testimonial.author.charAt(0)}</span>
                           </div>
                         )}
-                        <div className="font-semibold text-white text-base">{testimonial.author}</div>
+                        <div className="font-semibold text-white text-sm">{testimonial.author}</div>
                         <div className="text-xs text-blue-200 flex items-center gap-2">
                           {testimonial.position}, {testimonial.company}
                           {testimonial.companyLogo && (
-                            <img src={testimonial.companyLogo} alt={testimonial.company} className="h-5 ml-2 inline-block" />
+                            <img src={testimonial.companyLogo} alt={testimonial.company} className="h-4 ml-2 inline-block" />
                           )}
                         </div>
                         {/* Services used */}
                         {testimonial.services && (
-                          <div className="text-xs text-blue-300 mt-1">Services: {testimonial.services.join(", ")}</div>
+                          <div className="text-xs text-blue-300 mt-0.5">Services: {testimonial.services.join(", ")}</div>
                         )}
                       </div>
                     </motion.div>
@@ -156,7 +155,7 @@ export default function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-2">
             <CarouselPrevious className="relative mr-2" />
             <CarouselNext className="relative ml-2" />
           </div>
