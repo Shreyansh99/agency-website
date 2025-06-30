@@ -69,7 +69,7 @@ const clientLogos = [
 ]
 
 export default function TestimonialsSection() {
-  const [emblaApi, setEmblaApi] = React.useState<any>(null);
+  const [emblaApi, setEmblaApi] = React.useState<CarouselApi | null>(null);
   const autoplayRef = React.useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = React.useState(false);
 
