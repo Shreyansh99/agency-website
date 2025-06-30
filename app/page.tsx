@@ -78,11 +78,19 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* Portfolio Section */}
-      <PortfolioSection />
+      {/* Unified Background for Testimonials & Portfolio */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/bg1.png"
+            alt="Background"
+            className="w-full h-full object-cover object-center"
+            style={{ minHeight: '100%', minWidth: '100%' }}
+          />
+        </div>
+        <TestimonialsSection />
+        <PortfolioSection />
+      </section>
 
       {/* Services Section */}
       <ServicesSection />

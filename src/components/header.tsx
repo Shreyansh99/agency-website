@@ -8,54 +8,133 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import {
   Sheet,
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { ThemeToggle } from "./theme-toggle"
-
-const services = [
-  { name: "Web Design", href: "/services/web-design" },
-  { name: "Web Development", href: "/services/web-development" },
-  { name: "UI/UX Design", href: "/services/ui-ux-design" },
-  { name: "Web Security", href: "/services/web-security" },
-  { name: "Digital Marketing", href: "/services/digital-marketing" },
-  { name: "Programming", href: "/services/programming" },
-  { name: "App Development", href: "/services/app-development" },
-  { name: "Blockchain Development", href: "/services/blockchain-development" },
-]
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <header className="w-full flex justify-center mt-6">
-      <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-background/90 border border-border rounded-full shadow-none backdrop-blur-md">
+      <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full" style={{ WebkitBackdropFilter: 'blur(24px)', backdropFilter: 'blur(24px)' }}>
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-foreground">
+        <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
           <Image src="/logo.png" alt="WebNexaAI Logo" width={32} height={32} className="rounded-full" />
           <span className="font-extrabold">WebNexaAI</span>
         </Link>
-        {/* Center Links */}
-        <div className="flex items-center space-x-8 mx-8">
-          <Link href="/services" className="text-secondary hover:text-foreground transition-colors font-medium">Services</Link>
-          <Link href="/process" className="text-secondary hover:text-foreground transition-colors font-medium">Process</Link>
-          <Link href="/solutions" className="text-secondary hover:text-foreground transition-colors font-medium">Solutions</Link>
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8 mx-8">
+          <Link href="/" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Home</Link>
+          <Link href="/about" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">About</Link>
+          <Link href="/services" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Services</Link>
+          <Link href="/work" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Our Work</Link>
+          <Link href="/blog" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Blog</Link>
+          <Link href="/contact" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Contact</Link>
         </div>
-        {/* Let's Talk Button */}
-        <Link href="/contact" className="btn-glow-border flex items-center px-4 py-2 text-white font-medium transition-all duration-300 hover:scale-105 relative z-10">
-          Let&apos;s Talk
-          <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-        </Link>
+        
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-[#E0E0E0] hover:bg-[#333] rounded-full">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-[#181818]/95 backdrop-blur-md border-l border-[#444] p-6">
+              <div className="flex flex-col h-full">
+                {/* Header with close button */}
+                <div className="flex items-center justify-between mb-8">
+                  <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
+                    <Image src="/logo.png" alt="WebNexaAI Logo" width={28} height={28} className="rounded-full" />
+                    <span className="font-extrabold">WebNexaAI</span>
+                  </Link>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    className="text-[#E0E0E0] hover:bg-[#333] rounded-full"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <X className="h-5 w-5" />
+                  </Button>
+                </div>
+                
+                {/* Navigation Links */}
+                <div className="flex-1 flex flex-col space-y-1">
+                  <Link 
+                    href="/" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <Link 
+                    href="/about" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
+                  </Link>
+                  <Link 
+                    href="/services" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Services
+                  </Link>
+                  <Link 
+                    href="/work" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Our Work
+                  </Link>
+                  <Link 
+                    href="/blog" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Blog
+                  </Link>
+                  <Link 
+                    href="/contact" 
+                    className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                </div>
+                
+                {/* Bottom CTA */}
+                <div className="pt-4 border-t border-[#444]">
+                  <Link 
+                    href="/contact" 
+                    className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Let&apos;s Talk
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+        
+        {/* Desktop Let's Talk Button */}
+        <div className="hidden md:block">
+          <Link href="/contact" className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]">
+            Let&apos;s Talk
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </div>
       </nav>
     </header>
   )

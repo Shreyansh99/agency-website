@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import BackgroundWrapper from "../src/components/background-wrapper";
 import CursorWrapper from "../src/components/cursor-wrapper";
+import Header from "../src/components/header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -57,29 +58,7 @@ export default function ClientLayout({
         <BackgroundWrapper />
 
         {/* Enhanced Header */}
-        <header className="w-full flex justify-center mt-6">
-          <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-[#181818] border border-[#444] rounded-full shadow-none">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
-              <img src="/logo.png" alt="WebNexaAI Logo" className="w-8 h-8 rounded-full" />
-              <span className="font-extrabold">WebNexaAI</span>
-            </Link>
-            {/* Center Links */}
-            <div className="flex items-center space-x-8 mx-8">
-              <Link href="/" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Home</Link>
-              <Link href="/about" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">About</Link>
-              <Link href="/services" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Services</Link>
-              <Link href="/work" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Our Work</Link>
-              <Link href="/blog" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Blog</Link>
-              <Link href="/contact" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Contact</Link>
-            </div>
-            {/* Let's Talk Button */}
-            <Link href="/contact" className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]">
-              Let&apos;s Talk
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </Link>
-          </nav>
-        </header>
+        <Header />
 
         <main className="flex-grow">
           {children}

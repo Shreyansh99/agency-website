@@ -69,7 +69,7 @@ const clientLogos = [
 ]
 
 export default function TestimonialsSection() {
-  const [emblaApi, setEmblaApi] = React.useState<CarouselApi | null>(null);
+  const [emblaApi, setEmblaApi] = React.useState<any>(null);
   const autoplayRef = React.useRef<NodeJS.Timeout | null>(null);
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -83,60 +83,83 @@ export default function TestimonialsSection() {
       if (emblaApi) {
         emblaApi.scrollNext();
       }
-    }, 3000);
+    }, 6000);
     return () => {
       if (autoplayRef.current) clearInterval(autoplayRef.current);
     };
   }, [emblaApi, isHovered]);
 
   return (
-    <section className="py-10 md:py-16 relative overflow-hidden bg-black">
-      <div className="container flex flex-col items-center justify-center">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-white">It's all about speed</h2>
-          <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
-            We provide you with a test account that can be set up in seconds.<br />
-            Our main focus is getting responses to you as soon as we can.
-          </p>
-        </div>
+    <section className="pt-2 pb-6 md:pt-4 md:pb-10 relative overflow-hidden">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-4"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Clients Testimonials</h2>
+        </motion.div>
+
         <Carousel
-          className="w-full max-w-2xl mx-auto"
+          className="w-full max-w-5xl mx-auto"
           setApi={setEmblaApi}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          opts={{ loop: true }}
         >
           <CarouselContent>
             {testimonials.map((testimonial, idx) => (
               <CarouselItem key={testimonial.id}>
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.9, ease: 'easeInOut', delay: 0.1 * idx }}
-                  className="flex flex-col items-center text-center space-y-6"
-                >
-                  <div className="text-left w-full flex justify-center">
-                    <span className="text-[64px] text-gray-700 leading-none mr-2 -mt-4 select-none">“</span>
-                    <span className="sr-only">Quote</span>
-                  </div>
-                  <p className="text-xl md:text-2xl italic text-white font-medium max-w-2xl mx-auto">
-                    {testimonial.content}
-                  </p>
-                  <div className="flex flex-col items-center mt-2">
-                    {testimonial.profilePhoto && (
-                      <img src={testimonial.profilePhoto} alt={testimonial.author} className="w-12 h-12 rounded-full object-cover mb-2" />
-                    )}
-                    <span className="font-bold text-lg text-blue-400">{testimonial.author}</span>
-                    <span className="text-sm text-gray-400">{testimonial.position} {testimonial.company && (
-                      <>
-                        <span className="mx-1">|</span>
-                        {testimonial.company}
-                      </>
-                    )}</span>
-                  </div>
-                </motion.div>
+                <Card className="border-none bg-transparent">
+                  <CardContent className="p-4 md:p-5">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, type: 'spring', delay: 0.1 * idx }}
+                      className="flex flex-col items-center text-center space-y-4"
+                    >
+                      {/* Highlight line */}
+                      <div className="text-blue-400 text-sm md:text-base font-semibold mb-1">{testimonial.highlight}</div>
+                      <div className="text-primary mb-1">
+                        <Quote className="h-8 w-8 rotate-180" />
+                      </div>
+                      <p className="text-lg md:text-xl italic font-semibold text-white text-center leading-snug mb-1 drop-shadow-md" style={{textShadow: '0 2px 8px rgba(0,0,0,0.25)'}}>
+                        {`"${testimonial.content}"`}
+                      </p>
+                      <div className="w-12 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full mx-auto mb-1" />
+                      <div className="flex flex-col items-center">
+                        {/* Profile photo or stylized avatar */}
+                        {testimonial.profilePhoto ? (
+                          <img src={testimonial.profilePhoto} alt={testimonial.author} className="w-12 h-12 rounded-full border-2 border-blue-400 mb-2 object-cover" />
+                        ) : (
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center mb-2">
+                            <span className="text-lg font-bold text-white">{testimonial.author.charAt(0)}</span>
+                          </div>
+                        )}
+                        <div className="font-semibold text-white text-base">{testimonial.author}</div>
+                        <div className="text-xs text-blue-200 flex items-center gap-2">
+                          {testimonial.position}, {testimonial.company}
+                          {testimonial.companyLogo && (
+                            <img src={testimonial.companyLogo} alt={testimonial.company} className="h-5 ml-2 inline-block" />
+                          )}
+                        </div>
+                        {/* Services used */}
+                        {testimonial.services && (
+                          <div className="text-xs text-blue-300 mt-1">Services: {testimonial.services.join(", ")}</div>
+                        )}
+                      </div>
+                    </motion.div>
+                  </CardContent>
+                </Card>
               </CarouselItem>
             ))}
           </CarouselContent>
+          <div className="flex justify-center mt-4">
+            <CarouselPrevious className="relative mr-2" />
+            <CarouselNext className="relative ml-2" />
+          </div>
         </Carousel>
       </div>
     </section>
