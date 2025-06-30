@@ -90,16 +90,16 @@ export default function TestimonialsSection() {
   }, [emblaApi, isHovered]);
 
   return (
-    <section className="pt-4 pb-6 md:pt-6 md:pb-8 relative overflow-hidden">
+    <section className="pt-2 pb-4 md:pt-3 md:pb-6 relative overflow-hidden">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-2"
+          className="text-center mb-0 p-0"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-1">Clients Testimonials</h2>
+          {/* Removed Clients Testimonials heading and extra spacing */}
         </motion.div>
         <Carousel
           className="w-full max-w-5xl mx-auto"

@@ -10,67 +10,48 @@ import {
   TrendingUp,
   Terminal,
   Smartphone,
-  Bitcoin
+  Bitcoin,
+  MessageSquare,
+  LayoutDashboard
 } from "lucide-react"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const services = [
   {
-    icon: <Globe className="h-8 w-8" />,
-    title: "Web Design",
-    description: "Delivering cutting-edge, transparent, and efficient web design solutions. We ensure that your web presence is not only visually appealing but also user-friendly and accessible.",
-    projects: 10,
-    href: "/ourportfolio"
+    icon: <Terminal className="h-8 w-8" />,
+    title: "AI Automation",
+    description: "Automate operations & save time\nWe build AI agents and backend workflows that take care of repetitive tasks — from sales alerts to internal processes.",
+    stat: "25+ AI agents deployed",
+    href: "/services"
   },
   {
-    icon: <Code className="h-8 w-8" />,
-    title: "Web Development",
-    description: "We specialize in building robust, user-friendly websites that cater to your business needs. Our development process is streamlined to produce frictionless deliverables, ensuring seamless user experiences.",
-    projects: 10,
-    href: "/ourportfolio"
-  },
-  {
-    icon: <Palette className="h-8 w-8" />,
-    title: "UI/UX Design",
-    description: "Our UI/UX design services focus on creating intuitive and engaging user interfaces. We aim to provide designs that are both aesthetically pleasing and functionally effective, enhancing user satisfaction.",
-    projects: 10,
-    href: "/ourportfolio"
-  },
-  {
-    icon: <Shield className="h-8 w-8" />,
-    title: "Web Security",
-    description: "Our team is dedicated to securing your web assets. We offer comprehensive web security services that protect your data and ensure the integrity of your online presence.",
-    projects: 2,
-    href: "/ourportfolio"
+    icon: <MessageSquare className="h-8 w-8" />,
+    title: "AI Chatbots & Agents",
+    description: "24/7 support that actually talks\nCustom GPT-powered bots that chat, guide, qualify, and book — just like a real team member.",
+    stat: "Used by 20+ brands",
+    href: "/services"
   },
   {
     icon: <TrendingUp className="h-8 w-8" />,
-    title: "Digital Marketing",
-    description: "Boost your online presence with our digital marketing services. We employ innovative strategies to increase your visibility and drive engagement across all digital platforms.",
-    projects: 30,
-    href: "/ourportfolio"
+    title: "AI Marketing Funnels",
+    description: "Scale your reach on autopilot\nWe combine Meta ads, AI-generated copy, and automated follow-ups to drive predictable, scalable growth.",
+    stat: "30% average increase in ROAS",
+    href: "/services"
   },
   {
-    icon: <Terminal className="h-8 w-8" />,
-    title: "Programming",
-    description: "We provide top-notch programming services, creating efficient and scalable solutions tailored to your specific requirements. Our team ensures that all deliverables are user-friendly and aligned with your business goals.",
-    projects: 20,
-    href: "/ourportfolio"
+    icon: <Globe className="h-8 w-8" />,
+    title: "Web Design & Development",
+    description: "Lightning-fast sites, built for conversion\nNext.js websites optimized for SEO, mobile, and speed — designed to look great and convert better.",
+    stat: "50+ websites launched",
+    href: "/services"
   },
   {
-    icon: <Smartphone className="h-8 w-8" />,
-    title: "App Development",
-    description: "We create high-performing, feature-rich mobile applications that cater to a wide range of business needs. Our development process is focused on delivering apps that provide a seamless user experience.",
-    projects: 5,
-    href: "/ourportfolio"
-  },
-  {
-    icon: <Bitcoin className="h-8 w-8" />,
-    title: "Blockchain Development",
-    description: "Stay ahead with our blockchain development services. We offer secure and transparent solutions that leverage the latest in blockchain technology to enhance your business operations.",
-    projects: 14,
-    href: "/ourportfolio"
+    icon: <LayoutDashboard className="h-8 w-8" />,
+    title: "Custom CRM & Automation Dashboards",
+    description: "All-in-one growth control panels\nCustom CRMs and dashboards that help you track leads, automate workflows, and grow with clarity.",
+    stat: "10+ businesses scaled with internal tools",
+    href: "/services"
   }
 ]
 
@@ -114,7 +95,7 @@ export default function ServicesSection() {
                   </CardContent>
                   <CardFooter className="pt-0">
                     <p className="text-xs sm:text-sm text-muted-foreground">
-                      {service.projects} Projects Completed
+                      {service.stat}
                     </p>
                   </CardFooter>
                 </Card>
