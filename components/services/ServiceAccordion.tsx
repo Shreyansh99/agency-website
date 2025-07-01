@@ -17,7 +17,7 @@ export const ServiceAccordion = () => {
   return (
     <>
       <motion.section 
-        className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2"
+        className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-4 px-4 py-8 sm:gap-6 sm:px-6 md:grid-cols-2 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -29,7 +29,7 @@ export const ServiceAccordion = () => {
       </motion.section>
 
       <motion.div 
-        className="text-center mt-8 px-6 sm:px-0"
+        className="text-center mt-8 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}

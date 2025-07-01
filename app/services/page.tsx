@@ -24,13 +24,13 @@ export default function ServicesPage() {
       <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
 
       <motion.header 
-        className="mx-auto max-w-4xl px-4 py-8 text-center relative z-10"
+        className="mx-auto max-w-4xl px-4 py-6 sm:py-8 text-center relative z-10"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.h1 
-          className="text-5xl md:text-6xl font-bold text-white mb-4"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
