@@ -1,115 +1,99 @@
 "use client"
 
-import { motion } from "framer-motion";
-import type { NextPage } from "next";
+import HeroTitle from "@/src/components/home/hero-title";
+import AboutSection from "@/src/components/home/about-section";
+import ServiceItem from "@/src/components/services/ServiceItem";
+import CallToAction from "@/src/components/home/call-to-action";
+import { 
+  Zap,
+  Bot,
+  RotateCcw,
+  TrendingUp,
+  Rocket,
+  Users,
+  Target,
+  Lightbulb,
+  Handshake,
+  Settings
+} from "lucide-react";
 
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-const fadeInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
-
-
-const itemFadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5 }
-  }
-};
-
-const AboutPage: NextPage = () => {
+const AboutPage = () => {
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 md:py-28 lg:py-32 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={fadeIn}
-          >
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
-              variants={itemFadeIn}
-            >
-              <span className="block text-white">About</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">WebNexaAI</span>
-            </motion.h1>
-            <motion.p
-              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
-              variants={itemFadeIn}
-            >
-              We are a team of passionate developers, designers, and digital strategists dedicated to transforming ideas into powerful digital experiences.
-            </motion.p>
-          </motion.div>
+    <div className="min-h-screen bg-black text-white">
+      <div className="container mx-auto px-8 py-20 max-w-5xl">
+        <HeroTitle />
+        <div className="space-y-8">
+          <AboutSection icon={<Rocket className="h-7 w-7" />} title="Who We Are" delay={0.1}>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-300">We're not your traditional agency.</p>
+              <p className="text-lg text-gray-300">We're a team of builders, designers, and automation architects focused on one thing:</p>
+              <p className="text-blue-400 font-medium text-xl mt-6">
+                Helping businesses grow faster with AI-first systems.
+              </p>
         </div>
-      </section>
+          </AboutSection>
 
-      {/* Our Story Section */}
-      <section className="py-16 md:py-24 relative">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              className="relative"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInLeft}
-            >
-              <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden backdrop-blur-sm bg-blue-500/5 border border-blue-500/20 flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-48 h-48 rounded-full bg-indigo-500/20 animate-pulse"></div>
+          <AboutSection icon={<Settings className="h-7 w-7" />} title="What Makes Us Different" delay={0.2}>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-300">We don't just build websites — we build growth engines.</p>
+              <p className="text-lg text-gray-300">We don't run ads — we automate lead machines.</p>
+              <p className="text-lg text-gray-300">We don't use AI for the buzz — we use it to cut cost, time, and friction.</p>
                 </div>
-                <p className="text-blue-400 text-xl relative z-10">Our Story Image</p>
+          </AboutSection>
+
+          <AboutSection icon={<Target className="h-7 w-7" />} title="What We Build" delay={0.3}>
+            <div className="space-y-6">
+              <ServiceItem 
+                icon={<Zap className="h-6 w-6" />} 
+                text="Lightning-fast websites (Next.js + Tailwind)" 
+                delay={0.1}
+              />
+              <ServiceItem 
+                icon={<Bot className="h-6 w-6" />} 
+                text="Custom AI agents (sales, support, booking)" 
+                delay={0.2}
+              />
+              <ServiceItem 
+                icon={<RotateCcw className="h-6 w-6" />} 
+                text="Automations that run your ops on autopilot" 
+                delay={0.3}
+              />
+              <ServiceItem 
+                icon={<TrendingUp className="h-6 w-6" />} 
+                text="AI-powered marketing funnels & creative" 
+                delay={0.4}
+              />
               </div>
-            </motion.div>
-            <motion.div
-              className="space-y-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInRight}
-            >
-              <div>
-                <h2 className="text-sm font-semibold text-blue-400 mb-2">Our Story</h2>
-                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">From Vision to Digital Reality</h3>
-                <p className="text-gray-300 mb-4">
-                  Founded in 2020, WebNexaAI began with a simple mission: to help businesses harness the power of technology to grow and thrive in the digital age.
-                </p>
-                <p className="text-gray-300 mb-8">
-                  What started as a small team of passionate developers has grown into a full-service digital agency, delivering innovative solutions to clients worldwide.
+          </AboutSection>
+
+          <AboutSection icon={<Users className="h-7 w-7" />} title="Who We Help" delay={0.4}>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-300">Startups. Local brands. Creators. Service businesses.</p>
+              <p className="text-blue-400 font-medium text-xl mt-6">
+                Anyone ready to level up — without hiring more people.
+              </p>
+            </div>
+          </AboutSection>
+
+          <AboutSection icon={<Lightbulb className="h-7 w-7" />} title="Why It Matters" delay={0.5}>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-300">Because in 2025, scaling manually is a trap.</p>
+              <p className="text-blue-400 font-medium text-xl mt-6">
+                We help you build systems that work for you — 24/7.
                 </p>
               </div>
-            </motion.div>
+          </AboutSection>
+
+          <AboutSection icon={<Handshake className="h-7 w-7" />} title="Built to Scale With You" delay={0.6}>
+            <div className="space-y-4">
+              <p className="text-lg text-gray-300">No cookie-cutter templates</p>
+              <p className="text-lg text-gray-300">No bloated retainers</p>
+              <p className="text-blue-400 font-medium text-xl mt-6">Just fast, smart execution</p>
           </div>
+          </AboutSection>
         </div>
-      </section>
+        <CallToAction />
+      </div>
     </div>
   );
 };

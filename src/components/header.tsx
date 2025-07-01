@@ -30,7 +30,7 @@ export default function Header() {
           <Link href="/" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Home</Link>
           <Link href="/about" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">About</Link>
           <Link href="/services" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Services</Link>
-          <Link href="/work" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Our Work</Link>
+          <Link href="/portfolio" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Portfolio</Link>
           <Link href="/blog" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Blog</Link>
           <Link href="/contact" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Contact</Link>
         </div>
@@ -86,11 +86,11 @@ export default function Header() {
                     Services
                   </Link>
                   <Link 
-                    href="/work" 
+                    href="/portfolio" 
                     className="flex items-center px-4 py-3 text-[#E0E0E0] hover:text-white hover:bg-[#333] rounded-lg transition-all duration-200 font-medium"
                     onClick={() => setIsOpen(false)}
                   >
-                    Our Work
+                    Portfolio
                   </Link>
                   <Link 
                     href="/blog" 
