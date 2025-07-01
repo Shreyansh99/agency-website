@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-muted-foreground">
-              An influential creative agency. Gets IT Solutions For Expert Consultants
+              An AI-powered agency helping businesses scale through websites, automation, and intelligent marketing.
             </p>
             <div className="flex space-x-4">
               <Link href="https://www.instagram.com/webnexaai/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -53,18 +53,14 @@ export default function Footer() {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="font-semibold text-lg">About Us</h3>
+            <h3 className="font-semibold text-lg">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-                  Terms & Policies
-                </Link>
-              </li>
+              <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/work" className="text-muted-foreground hover:text-primary transition-colors">Our Work</Link></li>
+              <li><Link href="/blog" className="text-muted-foreground hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
+              <li><Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms & Policies</Link></li>
             </ul>
           </motion.div>
 
@@ -76,11 +72,7 @@ export default function Footer() {
             className="space-y-4"
           >
             <h3 className="font-semibold text-lg">Contact</h3>
-            <p className="text-muted-foreground">contact@webnexaai.com</p>
-            <p className="text-muted-foreground">
-              Building 56, Ward 2, Amarpatan Road,<br />
-              Ramnagar, Satna, (M.P), INDIA
-            </p>
+            <p className="text-muted-foreground">📧 contact@webnexaai.com</p>
           </motion.div>
 
           <motion.div
@@ -99,14 +91,11 @@ export default function Footer() {
             >
               WhatsApp
             </Link>
-            <p className="text-muted-foreground mt-4">
-              GST REGISTRATION NUMBER: 23DEOPG6721R1ZX
-            </p>
           </motion.div>
         </div>
 
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>WebNexaAI&apos;s, All Rights Reserved.</p>
+          <p>© WebNexaAI. All rights reserved.</p>
         </div>
       </div>
     </footer>
