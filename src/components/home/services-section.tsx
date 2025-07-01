@@ -16,87 +16,145 @@ import {
   ArrowRight
 } from "lucide-react"
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const services = [
   {
-    icon: <Terminal className="h-8 w-8" />,
+    icon: <Terminal className="h-5 w-5" />,
     title: "AI Automation",
-    description: "Automate operations & save time\nWe build AI agents and backend workflows that take care of repetitive tasks — from sales alerts to internal processes.",
+    description: "Automate operations & save time with AI agents and backend workflows.",
     stat: "25+ AI agents deployed",
-    href: "/ourportfolio"
+    href: "/ourportfolio",
+    features: ["AI Agents", "Workflow Automation", "Backend Systems", "Process Optimization"]
   },
   {
-    icon: <MessageSquare className="h-8 w-8" />,
+    icon: <MessageSquare className="h-5 w-5" />,
     title: "AI Chatbots & Agents",
-    description: "24/7 support that actually talks\nCustom GPT-powered bots that chat, guide, qualify, and book — just like a real team member.",
+    description: "24/7 support that actually talks with GPT-powered bots.",
     stat: "Used by 20+ brands",
-    href: "/ourportfolio"
+    href: "/ourportfolio",
+    features: ["GPT Integration", "24/7 Support", "Lead Qualification", "Booking Systems"]
   },
   {
-    icon: <TrendingUp className="h-8 w-8" />,
+    icon: <TrendingUp className="h-5 w-5" />,
     title: "AI Marketing Funnels",
-    description: "Scale your reach on autopilot\nWe combine Meta ads, AI-generated copy, and automated follow-ups to drive predictable, scalable growth.",
+    description: "Scale your reach on autopilot with Meta ads and AI copy.",
     stat: "30% average increase in ROAS",
-    href: "/ourportfolio"
+    href: "/ourportfolio",
+    features: ["Meta Ads", "AI Copywriting", "Automated Follow-ups", "ROAS Optimization"]
   },
   {
-    icon: <Globe className="h-8 w-8" />,
+    icon: <Globe className="h-5 w-5" />,
     title: "Web Design & Development",
-    description: "Lightning-fast sites, built for conversion\nNext.js websites optimized for SEO, mobile, and speed — designed to look great and convert better.",
+    description: "Lightning-fast Next.js sites optimized for SEO and conversion.",
     stat: "50+ websites launched",
-    href: "/ourportfolio"
+    href: "/ourportfolio",
+    features: ["Next.js Development", "SEO Optimization", "Mobile Responsive", "Performance"]
   },
   {
-    icon: <LayoutDashboard className="h-8 w-8" />,
-    title: "Custom CRM & Automation Dashboards",
-    description: "All-in-one growth control panels\nCustom CRMs and dashboards that help you track leads, automate workflows, and grow with clarity.",
-    stat: "10+ businesses scaled with internal tools",
-    href: "/ourportfolio"
+    icon: <LayoutDashboard className="h-5 w-5" />,
+    title: "Custom CRM & Dashboards",
+    description: "All-in-one growth control panels for tracking and automation.",
+    stat: "10+ businesses scaled",
+    href: "/ourportfolio",
+    features: ["Custom CRM", "Analytics Dashboards", "Lead Tracking", "Workflow Automation"]
   }
 ]
 
+// Animation variants
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemFadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 }
+  }
+};
+
 export default function ServicesSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 md:py-12 relative overflow-hidden">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8"
         >
-          <h2 className="text-xs sm:text-sm font-semibold text-primary mb-2 uppercase tracking-wider">Our Expertise</h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">Our Services</h3>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-            We offer a comprehensive suite of digital solutions designed to transform your business and drive exceptional results.
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Our Services</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto">
+            We offer a comprehensive suite of digital solutions designed to transform your business
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-fr">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.015, boxShadow: "0 2px 16px #38bdf8" }}
-              transition={{ duration: 0.5, type: "spring" }}
-              className="flex flex-col justify-between h-full min-h-[320px] rounded-2xl bg-[#181926]/80 border border-[#38bdf8]/20 shadow-lg overflow-hidden p-6 group relative"
+              variants={itemFadeIn}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
             >
-              <div className="absolute right-4 bottom-4 opacity-10 pointer-events-none select-none">
-                {service.icon}
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 whitespace-pre-line">{service.description}</p>
-              </div>
-              <a href={service.href} className="inline-flex items-center text-cyan-400 font-semibold group-hover:underline mt-auto">
-                Learn More <ArrowRight className="ml-1 w-4 h-4" />
-              </a>
+              <Card className="h-full border-blue-500/20 bg-blue-500/5 backdrop-blur-sm hover:bg-blue-500/10 hover:border-blue-500/40 transition-all duration-300 group">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform duration-300">
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.1 + index * 0.1, type: "spring" }}
+                      >
+                        {service.icon}
+                      </motion.div>
+                    </div>
+                    <div>
+                      <CardTitle className="text-base font-semibold text-white">{service.title}</CardTitle>
+                      <p className="text-xs text-blue-300 opacity-80">{service.stat}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <CardDescription className="text-sm text-gray-300 mb-3">
+                    {service.description}
+                  </CardDescription>
+                  <div className="space-y-1 mb-4">
+                    {service.features.slice(0, 3).map((feature, i) => (
+                      <div key={i} className="flex items-center text-xs text-gray-400">
+                        <div className="w-1 h-1 bg-blue-400 rounded-full mr-2"></div>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group/link"
+                  >
+                    Learn More
+                    <ArrowRight className="w-3 h-3 ml-1 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
