@@ -24,11 +24,11 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay }}
-      className="mb-8"
+      className="mb-6 sm:mb-8"
     >
       <motion.div
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-4 mb-4 cursor-pointer group p-4 rounded-lg transition-all duration-300"
+        className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 cursor-pointer group p-3 sm:p-4 rounded-lg transition-all duration-300"
         whileHover={{ 
           x: 8,
           backgroundColor: "rgba(30, 58, 138, 0.1)",
@@ -38,14 +38,14 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
         transition={{ duration: 0.2 }}
       >
         <motion.span 
-          className="text-2xl flex-shrink-0 text-blue-400"
+          className="text-xl sm:text-2xl flex-shrink-0 text-blue-400"
           whileHover={{ scale: 1.2, rotate: 10 }}
           transition={{ duration: 0.2 }}
         >
           {icon}
         </motion.span>
         <motion.h2 
-          className="text-2xl font-semibold text-white flex-grow group-hover:text-blue-300 transition-colors duration-300"
+          className="text-lg sm:text-xl md:text-2xl font-semibold text-white flex-grow group-hover:text-blue-300 transition-colors duration-300"
           whileHover={{ x: 4 }}
         >
           {title}
@@ -56,7 +56,7 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
           transition={{ duration: 0.3, ease: "easeInOut" as const }}
           className="text-blue-400"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
         </motion.div>
       </motion.div>
       
@@ -69,7 +69,7 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
             transition={{ duration: 0.4, ease: "easeInOut" as const }}
             className="overflow-hidden"
           >
-            <div className="ml-16 text-gray-300 leading-relaxed pl-4 border-l-2 border-blue-400/30">
+            <div className="ml-12 sm:ml-16 text-gray-300 leading-relaxed pl-3 sm:pl-4 border-l-2 border-blue-400/30">
               {children}
             </div>
           </motion.div>

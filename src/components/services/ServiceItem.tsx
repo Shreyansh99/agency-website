@@ -20,7 +20,7 @@ const ServiceItem = ({ icon, text, delay = 0 }: ServiceItemProps) => {
         scale: 1.02,
       }}
       whileTap={{ scale: 0.98 }}
-      className="flex items-center gap-4 p-4 rounded-lg transition-all duration-200 cursor-pointer group"
+      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg transition-all duration-200 cursor-pointer group"
     >
       <motion.span
         className="text-blue-400 flex-shrink-0 group-hover:text-blue-300"
@@ -30,7 +30,7 @@ const ServiceItem = ({ icon, text, delay = 0 }: ServiceItemProps) => {
         {icon}
       </motion.span>
       <motion.span
-        className="text-gray-300 text-lg group-hover:text-white transition-colors duration-200"
+        className="text-gray-300 text-base sm:text-lg group-hover:text-white transition-colors duration-200 leading-relaxed"
         whileHover={{ x: 4 }}
       >
         {text}
