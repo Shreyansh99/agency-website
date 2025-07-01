@@ -53,7 +53,7 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
         <motion.div
           animate={{ rotate: isOpen ? 90 : 0 }}
           whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          transition={{ duration: 0.3, ease: "easeInOut" as const }}
           className="text-blue-400"
         >
           <ChevronRight className="h-5 w-5" />
@@ -66,7 +66,7 @@ const AboutSection = ({ icon, title, children, delay = 0 }: AboutSectionProps) =
             initial={{ opacity: 0, height: 0, x: -20 }}
             animate={{ opacity: 1, height: "auto", x: 0 }}
             exit={{ opacity: 0, height: 0, x: -20 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" as const }}
             className="overflow-hidden"
           >
             <div className="ml-16 text-gray-300 leading-relaxed pl-4 border-l-2 border-blue-400/30">

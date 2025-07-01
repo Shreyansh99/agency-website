@@ -69,7 +69,7 @@ export const ServiceItem = ({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" as const }}
             className="overflow-hidden pt-4 text-gray-300"
           >
             <ul className="space-y-3 pl-2 text-sm font-medium">
