@@ -6,6 +6,7 @@ import { Rocket, Bot, BrainCog, MessageSquare, TrendingUp, GalleryHorizontal, Ex
 import Link from "next/link";
 import AboutSection from "@/src/components/home/about-section";
 import { Button } from "@/src/components/ui/button";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const projects = [
   // Web Design & Development
@@ -280,7 +281,7 @@ export default function PortfolioPage() {
             <p className="text-base sm:text-lg text-gray-300 px-4">Let's build something amazing together. Book a free strategy call today!</p>
           </div>
           <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 sm:px-8 py-3 text-base sm:text-lg font-semibold">
-            <Link href="/contact">Book a Free Call</Link>
+            <a href="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
           </Button>
         </motion.div>
       </motion.div>

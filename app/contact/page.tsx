@@ -240,8 +240,17 @@ export default function ContactPage() {
       {/* Contact Info & Form Section */}
       <Container className="relative z-10 pb-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Contact Info Card */}
-          <Card className="bg-blue-500/5 border border-blue-500/20 rounded-lg">
+          {/* Contact Form Card - moved above on mobile */}
+          <Card className="bg-blue-500/5 border border-blue-500/20 rounded-lg order-1 lg:order-2">
+            <CardHeader>
+              <CardTitle className="text-2xl font-bold text-white mb-2">Send Us a Message</CardTitle>
+            </CardHeader>
+            <CardContent className="pb-2 pt-0">
+              <ContactForm />
+            </CardContent>
+          </Card>
+          {/* Contact Info Card - below form on mobile */}
+          <Card className="bg-blue-500/5 border border-blue-500/20 rounded-lg order-2 lg:order-1">
             <CardHeader>
               <CardTitle className="text-2xl font-bold text-white mb-2">Contact Information</CardTitle>
             </CardHeader>
@@ -253,7 +262,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-white">Phone</h3>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-300">+91 9006552373</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -263,7 +272,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-white">Email</h3>
-                  <p className="text-gray-300">info@webnexaai.com</p>
+                  <p className="text-gray-300">webnexaai@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -273,18 +282,9 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-white">Address</h3>
-                  <p className="text-gray-300">123 Tech Avenue, Suite 456<br />San Francisco, CA 94107</p>
+                  <p className="text-gray-300">India</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-          {/* Contact Form Card */}
-          <Card className="bg-blue-500/5 border border-blue-500/20 rounded-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-white mb-2">Send Us a Message</CardTitle>
-            </CardHeader>
-            <CardContent className="pb-2 pt-0">
-              <ContactForm />
             </CardContent>
           </Card>
         </div>

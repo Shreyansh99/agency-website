@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import * as THREE from "three"
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog"
 
 import { Button } from "@/components/ui/button"
 
@@ -101,15 +102,15 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce">
-              <Link href="/book-call">
+              <a href="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting" target="_blank" rel="noopener noreferrer">
                 Book a Call <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20">
-                <Link href="#" target="_blank">
-                  Watch Video
-                </Link>
-              </Button>
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20">
+              <Link href="#" target="_blank">
+                Watch Video
+              </Link>
+            </Button>
           </motion.div>
             {/* Scroll Indicator */}
           <motion.div

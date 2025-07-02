@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const CallToAction = () => {
   return (
@@ -24,25 +25,33 @@ const CallToAction = () => {
           Your Website. Your AI Agents. Your Business — on Autopilot.
         </p>
       </motion.div>
-      
-      <motion.div
-        whileHover={{ scale: 1.05, y: -2 }}
-        whileTap={{ scale: 0.95 }}
-        transition={{ duration: 0.2 }}
-      >
-        <Button 
-          size="lg" 
-          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          Book Free Strategy Call
-          <motion.div
-            whileHover={{ x: 4 }}
-            transition={{ duration: 0.2 }}
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button 
+            size="lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </motion.div>
-        </Button>
-      </motion.div>
+            Book Free Strategy Call
+            <motion.div
+              whileHover={{ x: 4 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </motion.div>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-2xl w-full">
+          <DialogTitle>Book a Free Strategy Call</DialogTitle>
+          <iframe
+            src="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting"
+            title="Book a Call"
+            width="100%"
+            height="600"
+            style={{ border: 0 }}
+            allowFullScreen
+          />
+        </DialogContent>
+      </Dialog>
     </motion.div>
   );
 };

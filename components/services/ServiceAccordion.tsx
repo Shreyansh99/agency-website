@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ServiceItem } from "./ServiceItem";
 import { services } from "./services";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,14 +43,14 @@ export const ServiceAccordion = () => {
           Let's talk it out — no pressure, just clarity.  
           Book a free 1:1 strategy call and see if we're the right fit to help you scale with AI.
         </p>
-        <motion.a 
-          href="/contact" 
+        <a 
+          href="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting" 
           className="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-black bg-white rounded-xl hover:scale-105 transition hover:bg-gray-100"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           📞 Book Your Free Call
-        </motion.a>
+        </a>
       </motion.div>
     </>
   );
