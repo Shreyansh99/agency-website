@@ -20,6 +20,22 @@ export const ServiceItem = ({
   content,
 }: ServiceItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  // Show content on hover (desktop) or when expanded (mobile)
+  const shouldShowContent = isHovered || isExpanded;
 
   return (
     <motion.div
@@ -28,8 +44,9 @@ export const ServiceItem = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      onHoverStart={handleMouseEnter}
+      onHoverEnd={handleMouseLeave}
+      onClick={handleToggle}
       className={cn(
         "w-full rounded-2xl border border-blue-500/20 bg-blue-500/5 backdrop-blur-sm px-4 py-4 sm:px-5 shadow-md transition-all duration-300 hover:bg-blue-500/10 hover:shadow-lg hover:border-blue-500/40 cursor-pointer"
       )}
@@ -54,7 +71,7 @@ export const ServiceItem = ({
           </div>
         </div>
         <motion.div
-          animate={{ rotate: isHovered ? 180 : 0 }}
+          animate={{ rotate: shouldShowContent ? 180 : 0 }}
           transition={{ duration: 0.3 }}
           className="text-blue-400 flex-shrink-0"
         >
@@ -63,7 +80,7 @@ export const ServiceItem = ({
       </div>
 
       <AnimatePresence>
-        {isHovered && (
+        {shouldShowContent && (
           <motion.div
             layout
             initial={{ opacity: 0, height: 0 }}
