@@ -185,13 +185,30 @@ const categories = [
 
 export default function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen relative">
+      {/* Background image with dark overlay - same as services page */}
+      <div className="absolute inset-0 -z-20">
+        <img
+          src="/background.jpg"
+          alt="Background"
+          className="w-full h-full object-cover object-center"
+          style={{ minHeight: '100%', minWidth: '100%' }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+      
+      {/* Additional atmospheric gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+      
+      {/* Subtle warm glow effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
+
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl"
+        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl relative z-10"
       >
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Our Portfolio</h1>
@@ -267,6 +284,6 @@ export default function PortfolioPage() {
           </Button>
         </motion.div>
       </motion.div>
-    </div>
+    </main>
   );
 }

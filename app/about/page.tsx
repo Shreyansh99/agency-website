@@ -19,8 +19,25 @@ import {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl">
+    <main className="min-h-screen relative">
+      {/* Background image with dark overlay - same as services page */}
+      <div className="absolute inset-0 -z-20">
+        <img
+          src="/background.jpg"
+          alt="Background"
+          className="w-full h-full object-cover object-center"
+          style={{ minHeight: '100%', minWidth: '100%' }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+      
+      {/* Additional atmospheric gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+      
+      {/* Subtle warm glow effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl relative z-10">
         <HeroTitle />
         <div className="space-y-6 sm:space-y-8">
           <AboutSection icon={<Rocket className="h-6 w-6 sm:h-7 sm:w-7" />} title="Who We Are" delay={0.1}>
@@ -94,7 +111,7 @@ const AboutPage = () => {
         </div>
         <CallToAction />
       </div>
-    </div>
+    </main>
   );
 };
 
