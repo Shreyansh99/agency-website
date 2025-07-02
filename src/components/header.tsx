@@ -110,18 +110,18 @@ export default function Header() {
                 
                 {/* Bottom CTA */}
                 <div className="pt-4 border-t border-[#444]">
-                  <Link 
-                    href="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting" 
+                  <a
+                    href="https://calendly.com/webnexaai/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]"
+                    className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444] w-full justify-center"
                     onClick={() => setIsOpen(false)}
                   >
                     Let&apos;s Talk
                     <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </SheetContent>
@@ -130,12 +130,17 @@ export default function Header() {
         
         {/* Desktop Let's Talk Button */}
         <div className="hidden md:block">
-          <Link href="https://calendly.com/d/cv2k-w6g-qvk/30-minute-meeting" target="_blank" rel="noopener noreferrer" className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]">
+          <a
+            href="https://calendly.com/webnexaai/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-4 py-2 bg-[#232323] hover:bg-[#333] text-[#E0E0E0] rounded-md font-medium transition-colors border border-[#444]"
+          >
             Let&apos;s Talk
             <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </Link>
+          </a>
         </div>
       </nav>
     </header>
