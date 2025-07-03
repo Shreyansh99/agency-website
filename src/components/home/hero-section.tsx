@@ -99,14 +99,14 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, type: 'spring' }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8 w-full"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8 w-full px-2"
           >
-            <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transform hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out w-full sm:w-auto">
+            <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce text-lg sm:text-xl md:text-2xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 transform hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out w-full sm:w-auto font-bold">
               <a href="https://calendly.com/webnexaai/30min" target="_blank" rel="noopener noreferrer">
-                Book a Call <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" />
+                Book a Call <ArrowRight className="ml-3 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 transform hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-auto">
+            <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20 text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 transform hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-auto">
               <Link href="#" target="_blank">
                 Watch Video
               </Link>
