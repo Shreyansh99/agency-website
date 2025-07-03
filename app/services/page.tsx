@@ -6,6 +6,7 @@ import Script from 'next/script';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Breadcrumb from '@/src/components/ui/breadcrumb';
+import Image from "next/image";
 
 export default function ServicesPage() {
   return (
@@ -42,12 +43,7 @@ export default function ServicesPage() {
         `}</Script>
         {/* Background image with dark overlay - same as other pages */}
         <div className="absolute inset-0 -z-20">
-          <img
-            src="/background.jpg"
-            alt="Background"
-            className="w-full h-full object-cover object-center"
-            style={{ minHeight: '100%', minWidth: '100%' }}
-          />
+          <Image src="/background.jpg" alt="Background" width={1920} height={1080} className="w-full h-full object-cover object-center" style={{ minHeight: "100%", minWidth: "100%" }} />
           <div className="absolute inset-0 bg-black/60" />
         </div>
         

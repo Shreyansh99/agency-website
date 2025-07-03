@@ -90,12 +90,7 @@ export default function Home() {
         {/* Unified Background for Testimonials & Portfolio */}
         <section aria-label="Testimonials and Portfolio" className="relative overflow-hidden">
           <div className="absolute inset-0 -z-10">
-            <img
-              src="/bg1.png"
-              alt="Background"
-              className="w-full h-full object-cover object-center"
-              style={{ minHeight: '100%', minWidth: '100%' }}
-            />
+            <Image src="/bg1.png" alt="Background" width={1920} height={1080} className="w-full h-full object-cover object-center" style={{ minHeight: '100%', minWidth: '100%' }} />
           </div>
           <TestimonialsSection />
           <PortfolioSection />

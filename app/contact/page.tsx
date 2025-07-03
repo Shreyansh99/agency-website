@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/select";
 import { NextSeo } from 'next-seo';
 import Link from "next/link";
+import Image from "next/image";
 
 // Animation variants
 const fadeIn = {
@@ -219,12 +220,7 @@ export default function ContactPage() {
     <main className="min-h-screen relative">
       {/* Background image with overlays */}
       <div className="absolute inset-0 -z-20">
-        <img
-          src="/background.jpg"
-          alt="Background"
-          className="w-full h-full object-cover object-center"
-          style={{ minHeight: "100%", minWidth: "100%" }}
-        />
+        <Image src="/background.jpg" alt="Background" width={1920} height={1080} className="w-full h-full object-cover object-center" style={{ minHeight: "100%", minWidth: "100%" }} />
         <div className="absolute inset-0 bg-black/60" />
       </div>
         <header>

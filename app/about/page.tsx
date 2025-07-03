@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { NextSeo } from 'next-seo';
 import Link from "next/link";
+import Image from "next/image";
 
 const AboutPage = () => {
   return (
@@ -27,27 +28,22 @@ const AboutPage = () => {
         description="Learn about WebNexaAI's mission, team, and approach to building AI-powered growth systems for modern businesses."
         canonical="https://webnexaai.com/about"
       />
-      <main className="min-h-screen relative">
-        {/* Background image with dark overlay - same as services page */}
-        <div className="absolute inset-0 -z-20">
-          <img
-            src="/background.jpg"
-            alt="Background"
-            className="w-full h-full object-cover object-center"
-            style={{ minHeight: '100%', minWidth: '100%' }}
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-        
-        {/* Additional atmospheric gradient */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
-        
-        {/* Subtle warm glow effect */}
-        <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
+    <main className="min-h-screen relative">
+      {/* Background image with dark overlay - same as services page */}
+      <div className="absolute inset-0 -z-20">
+          <Image src="/background.jpg" alt="Background" width={1920} height={1080} className="w-full h-full object-cover object-center" style={{ minHeight: '100%', minWidth: '100%' }} />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
+      
+      {/* Additional atmospheric gradient */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+      
+      {/* Subtle warm glow effect */}
+      <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl relative z-10">
           <header>
-            <HeroTitle />
+        <HeroTitle />
           </header>
           <section aria-label="Who We Are">
             <AboutSection icon={<Rocket className="h-6 w-6 sm:h-7 sm:w-7" />} title="Who We Are" delay={0.1} />
@@ -73,9 +69,9 @@ const AboutPage = () => {
           {/* Internal links at the end of the about page */}
           <div className="mt-12 text-center text-blue-300 text-sm">
             <p>Ready to grow with AI? <Link href="/services" className="underline hover:text-blue-400">See our AI automation & marketing services</Link>, <Link href="/portfolio" className="underline hover:text-blue-400">explore our client projects</Link>, or <Link href="/blog" className="underline hover:text-blue-400">read our latest insights</Link>.</p>
-          </div>
-        </div>
-      </main>
+            </div>
+      </div>
+    </main>
     </>
   );
 };
