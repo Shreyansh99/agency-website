@@ -5,6 +5,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Script from 'next/script';
+import Breadcrumb from '@/src/components/ui/breadcrumb';
 
 // Demo: Read MDX file from /blog folder
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
@@ -44,6 +45,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           cardType: 'summary_large_image',
         }}
       />
+      <Breadcrumb items={[
+        { href: '/', label: 'Home' },
+        { href: '/blog', label: 'Blog' },
+        { href: `/blog/${slug}`, label: frontmatter.title }
+      ]} />
       <Script id="blogposting-schema" type="application/ld+json" strategy="afterInteractive">{`
         {
           "@context": "https://schema.org",

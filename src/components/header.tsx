@@ -21,6 +21,57 @@ export default function Header() {
       <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full" style={{ WebkitBackdropFilter: 'blur(24px)', backdropFilter: 'blur(24px)' }}>
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
+          <Image src="/logo.png" alt="WebNexaAI agency logo" width={32} height={32} className="rounded-full" />
+          <span className="font-extrabold">WebNexaAI</span>
+        </Link>
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8 mx-8">
+          <Link href="/" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Home</Link>
+          <Link href="/about" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">About</Link>
+          <Link href="/services" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Services</Link>
+          <Link href="/portfolio" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Portfolio</Link>
+          <Link href="/blog" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Blog</Link>
+          <Link href="/contact" className="text-[#B0B0B0] hover:text-[#E0E0E0] transition-colors font-medium">Contact</Link>
+        </div>
+        
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-[#E0E0E0] hover:bg-[#333] rounded-full">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-[#181818]/95 backdrop-blur-md border-l border-[#444] p-6">
+              <div className="flex flex-col h-full">
+                {/* Header with close button */}
+                <div className="flex items-center justify-between mb-8">
+                  <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <header className="w-full flex justify-center mt-6">
+      <nav className="flex items-center justify-between w-full max-w-4xl px-6 py-2 bg-black/40 backdrop-blur-xl border border-white/20 shadow-2xl rounded-full" style={{ WebkitBackdropFilter: 'blur(24px)', backdropFilter: 'blur(24px)' }}>
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-[#E0E0E0]">
           <Image src="/logo.png" alt="WebNexaAI Logo" width={32} height={32} className="rounded-full" />
           <span className="font-extrabold">WebNexaAI</span>
         </Link>

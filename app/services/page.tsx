@@ -5,6 +5,7 @@ import { ServiceAccordion } from "@/components/services/ServiceAccordion";
 import Script from 'next/script';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
+import Breadcrumb from '@/src/components/ui/breadcrumb';
 
 export default function ServicesPage() {
   return (
@@ -14,6 +15,10 @@ export default function ServicesPage() {
         description="Explore our AI agents, workflow automations, lead-gen chatbots, and custom AI integrations for business growth."
         canonical="https://webnexaai.com/services"
       />
+      <Breadcrumb items={[
+        { href: '/', label: 'Home' },
+        { href: '/services', label: 'Services' }
+      ]} />
       <main className="min-h-screen relative">
         <Script id="service-schema" type="application/ld+json" strategy="afterInteractive">{`
           {

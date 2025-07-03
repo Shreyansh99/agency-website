@@ -20,8 +20,8 @@
 - [x] **Logical heading hierarchy** (`<h1>` per page, then `<h2>`, `<h3>`, etc.).
 - [x] **Internal linking** between blog posts, services, and landing pages.
 - [x] **Descriptive anchor text** for all links.
-- [ ] **Optimize images** with descriptive `alt` attributes.
-- [ ] **Breadcrumb navigation** for blog and service pages.
+- [x] **Optimize images** with descriptive `alt` attributes.
+- [x] **Breadcrumb navigation** for blog and service pages.
 - [x] **Mobile-friendly, responsive design** (Tailwind CSS).
 - [ ] 🔁 **Regularly audit for duplicate content** and thin pages.
 
