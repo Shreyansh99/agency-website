@@ -101,27 +101,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8, type: 'spring' }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce">
-                  Book a Call <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl w-full glass-modal p-0 border-0 shadow-2xl">
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl overflow-hidden">
-                  <DialogTitle className="text-center text-2xl font-bold text-white py-6 bg-gradient-to-r from-blue-500/30 to-indigo-500/30 backdrop-blur-md border-b border-white/10">Book a Free Strategy Call</DialogTitle>
-                  <iframe
-                    src="https://calendly.com/webnexaai/30min"
-                    title="Book a Call"
-                    width="100%"
-                    height="600"
-                    className="rounded-b-2xl"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                  />
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce">
+              <a href="https://calendly.com/webnexaai/30min" target="_blank" rel="noopener noreferrer">
+                Book a Call <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20">
               <Link href="#" target="_blank">
                 Watch Video
