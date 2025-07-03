@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Container } from "@/src/components/ui/container";
 import { Button } from "@/src/components/ui/button";
 import { NextSeo } from 'next-seo';
+import { allBlogs } from 'contentlayer/generated';
+import { compareDesc } from 'date-fns';
 
 // Animation variants
 const fadeIn = {
@@ -39,79 +41,18 @@ const itemFadeIn = {
   }
 };
 
-// Blog post data
-const blogPosts = [
-  {
-    id: 1,
-    title: 'The Future of Web Development: Trends to Watch in 2024',
-    category: 'Web Development',
-    date: 'May 15, 2024',
-    author: 'Alex Johnson',
-    excerpt: 'Explore the emerging trends that are shaping the future of web development, from AI integration to serverless architecture.',
-    image: '/placeholder.jpg',
-    link: '/blog/future-web-development'
-  },
-  {
-    id: 2,
-    title: 'Designing for Accessibility: Best Practices for Inclusive UX',
-    category: 'UI/UX Design',
-    date: 'May 10, 2024',
-    author: 'Sarah Chen',
-    excerpt: 'Learn how to create digital experiences that are accessible to all users, regardless of their abilities or disabilities.',
-    image: '/placeholder.jpg',
-    link: '/blog/designing-accessibility'
-  },
-  {
-    id: 3,
-    title: 'How Blockchain is Revolutionizing Digital Security',
-    category: 'Blockchain',
-    date: 'May 5, 2024',
-    author: 'Michael Rodriguez',
-    excerpt: 'Discover how blockchain technology is transforming digital security and creating new opportunities for businesses.',
-    image: '/placeholder.jpg',
-    link: '/blog/blockchain-security'
-  },
-  {
-    id: 4,
-    title: 'Mobile App Development: Native vs. Cross-Platform',
-    category: 'App Development',
-    date: 'April 28, 2024',
-    author: 'Priya Patel',
-    excerpt: 'A comprehensive comparison of native and cross-platform app development approaches to help you choose the right strategy.',
-    image: '/placeholder.jpg',
-    link: '/blog/native-vs-cross-platform'
-  },
-  {
-    id: 5,
-    title: 'Leveraging AI for Business Growth: Practical Applications',
-    category: 'AI & Machine Learning',
-    date: 'April 20, 2024',
-    author: 'David Kim',
-    excerpt: 'Explore practical ways businesses can implement AI to drive growth, improve efficiency, and enhance customer experiences.',
-    image: '/placeholder.jpg',
-    link: '/blog/ai-business-growth'
-  },
-  {
-    id: 6,
-    title: 'SEO Strategies That Actually Work in 2024',
-    category: 'Digital Marketing',
-    date: 'April 15, 2024',
-    author: 'Emma Wilson',
-    excerpt: 'Discover effective SEO strategies that can help your business improve visibility and drive organic traffic in 2024.',
-    image: '/placeholder.jpg',
-    link: '/blog/seo-strategies'
-  }
-];
-
 // Categories for filtering
-const categories = ['All', 'Web Development', 'UI/UX Design', 'Blockchain', 'App Development', 'AI & Machine Learning', 'Digital Marketing'];
+const categories = [
+  'All',
+  ...Array.from(new Set(allBlogs.map((post) => post.category))).filter(Boolean)
+];
 
 export default function BlogPage() {
   const [filter, setFilter] = useState('All');
   
-  const filteredPosts = filter === 'All' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === filter);
+  const filteredPosts = filter === 'All'
+    ? allBlogs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+    : allBlogs.filter(post => post.category === filter).sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
   return (
     <>
@@ -187,25 +128,26 @@ export default function BlogPage() {
         <Container className="relative z-10 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredPosts.map((post) => (
-              <Card key={post.id} className="bg-blue-500/5 border border-blue-500/20 shadow-lg hover:bg-blue-500/10 transition-colors duration-300 flex flex-col h-full">
+              <Card key={post._id} className="bg-blue-500/5 border border-blue-500/20 shadow-lg hover:bg-blue-500/10 transition-colors duration-300 flex flex-col h-full">
                 <CardHeader className="pb-2 flex-row items-center gap-2">
                   <Badge variant="secondary" className="mb-0 mr-2">{post.category}</Badge>
                   <span className="text-xs text-gray-400">{post.date}</span>
                 </CardHeader>
                 <CardContent className="flex flex-col flex-1">
-                  <Link href={post.link} className="hover:underline" aria-label={`Read blog post: ${post.title}`}>
+                  <Link href={post.url} className="hover:underline" aria-label={`Read blog post: ${post.title}`}>
                     <CardTitle className="text-lg font-bold text-white mb-2 hover:text-blue-400 transition-colors">
                       {post.title}
                     </CardTitle>
                   </Link>
-                  <p className="text-gray-300 text-sm mb-4 flex-1">{post.excerpt}</p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-xs text-gray-400">By {post.author}</span>
-                    <Link href={post.link} className="text-blue-400 hover:text-blue-300 text-xs font-medium flex items-center gap-1" aria-label={`Read full post: ${post.title}`}>
-                      Read the full article
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </Link>
+                  <p className="text-gray-300 text-sm mb-4 flex-1">{post.description}</p>
+                  <div className="flex flex-wrap gap-1 mt-auto">
+                    {post.tags?.map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-xs mr-1 mb-1">{tag}</Badge>
+                    ))}
                   </div>
+                  <Link href={post.url} className="mt-4 inline-block">
+                    <Button variant="secondary" size="sm">Read More</Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}

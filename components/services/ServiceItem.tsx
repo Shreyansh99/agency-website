@@ -5,12 +5,14 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { LucideIcon, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 interface ServiceItemProps {
   title: string;
   subtitle: string;
   icon: LucideIcon;
   content: string[];
+  link?: string;
 }
 
 export const ServiceItem = ({
@@ -18,6 +20,7 @@ export const ServiceItem = ({
   subtitle,
   icon: Icon,
   content,
+  link,
 }: ServiceItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -199,6 +202,13 @@ export const ServiceItem = ({
                 </motion.li>
               ))}
             </ul>
+            {link && (
+              <div className="mt-4">
+                <Link href={link} className="inline-block px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold shadow hover:bg-blue-600 transition">
+                  Learn more
+                </Link>
+              </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

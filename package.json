@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentlayer/client": "^0.3.4",
+    "@contentlayer/source-files": "^0.3.4",
     "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
@@ -23,10 +25,12 @@
     "agency-website": "file:",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "contentlayer": "^0.3.4",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.22.0",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
+    "next-contentlayer": "^0.3.4",
     "next-seo": "^6.8.0",
     "next-sitemap": "^4.2.3",
     "next-themes": "^0.4.4",

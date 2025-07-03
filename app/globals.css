@@ -105,6 +105,8 @@ html {
   --border: 0 0% 27%; /* #444444 */
   --input: 0 0% 27%; /* #444444 */
   --ring: 0 0% 53%; /* #888888 */
+  --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
 }
 
 .dark {
@@ -135,6 +137,7 @@ html {
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: var(--font-sans);
   }
 
   /* Custom animations */
@@ -377,25 +380,6 @@ html {
     transform: translateZ(0) rotate(360deg);
     }
   }
-  @keyframes shimmer-slide {
-  to {
-    transform: translate(calc(100cqw - 100%), 0);
-    }
-  }
-  @keyframes spin-around {
-  0% {
-    transform: translateZ(0) rotate(0);
-    }
-  15%, 35% {
-    transform: translateZ(0) rotate(90deg);
-    }
-  65%, 85% {
-    transform: translateZ(0) rotate(270deg);
-    }
-  100% {
-    transform: translateZ(0) rotate(360deg);
-    }
-  }
 }
 
 @layer base {
@@ -405,4 +389,8 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+code, pre, .font-mono {
+  font-family: var(--font-mono);
 }

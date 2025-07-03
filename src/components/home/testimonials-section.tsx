@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Quote } from "lucide-react"
 import * as React from "react"
+import Image from "next/image"
 
 import {
   Carousel,
@@ -131,7 +132,7 @@ export default function TestimonialsSection() {
                       <div className="flex flex-col items-center">
                         {/* Profile photo or stylized avatar */}
                         {testimonial.profilePhoto ? (
-                          <img src={testimonial.profilePhoto} alt={`Profile photo of ${testimonial.author}`} className="w-10 h-10 rounded-full border-2 border-blue-400 mb-1 object-cover" />
+                          <Image src={testimonial.profilePhoto} alt={`Profile photo of ${testimonial.author}`} width={40} height={40} className="w-10 h-10 rounded-full border-2 border-blue-400 mb-1 object-cover" />
                         ) : (
                           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 flex items-center justify-center mb-1">
                             <span className="text-base font-bold text-white">{testimonial.author.charAt(0)}</span>
@@ -141,7 +142,7 @@ export default function TestimonialsSection() {
                         <div className="text-xs text-blue-200 flex items-center gap-2">
                           {testimonial.position}, {testimonial.company}
                           {testimonial.companyLogo && (
-                            <img src={testimonial.companyLogo} alt={`Logo of ${testimonial.company}`} className="h-4 ml-2 inline-block" />
+                            <Image src={testimonial.companyLogo} alt={`Logo of ${testimonial.company}`} width={16} height={16} className="h-4 ml-2 inline-block" />
                           )}
                         </div>
                         {/* Services used */}

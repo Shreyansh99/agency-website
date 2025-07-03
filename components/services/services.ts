@@ -31,6 +31,7 @@ export const services = [
       "✅ Internal workflows & business ops",
       "📌 25+ automation workflows deployed",
     ],
+    link: "/services/automation",
   },
   {
     icon: BrainCog,
@@ -44,6 +45,7 @@ export const services = [
       "🛠 Built With: OpenAI • Make • n8n • Node.js • LangChain",
       "📌 20+ agents deployed across industries",
     ],
+    link: "/services/ai-agents",
   },
   {
     icon: MessageSquare,
@@ -55,6 +57,7 @@ export const services = [
       "✅ Push data to CRM, Slack, Email in real time",
       "📌 12 bots deployed for active client use",
     ],
+    link: "/services/ai-chatbots",
   },
   {
     icon: TrendingUp,
@@ -68,6 +71,7 @@ export const services = [
       "📦 Add-ons: UGC video scripts • Email workflows",
       "📌 30+ brands supported",
     ],
+    link: "/services/marketing-automation",
   },
   {
     icon: GalleryHorizontal,
@@ -80,5 +84,18 @@ export const services = [
       "✅ Smart ad targeting strategies",
       "📌 Used in multi-brand ad launches",
     ],
+  },
+  {
+    icon: BrainCog,
+    title: "Custom AI Integrations",
+    subtitle: "Integrate AI into your business tools and workflows.",
+    content: [
+      "✅ GPT, LLM, and AI model integration",
+      "✅ Connect AI to CRMs, ERPs, and databases",
+      "✅ Custom API and webhook development",
+      "✅ AI-powered document and image processing",
+      "📌 Custom integrations for unique business needs",
+    ],
+    link: "/services/ai-integrations",
   },
 ]; 
