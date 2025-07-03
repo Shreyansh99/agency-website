@@ -39,7 +39,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, type: 'spring' }}
-          className="w-full max-w-3xl text-center px-4 sm:px-6"
+          className="w-full max-w-3xl text-center"
         >
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -75,21 +75,21 @@ export default function HeroSection() {
               <div className="flex items-center gap-2">
                 {/* Avatars */}
                 <div className="flex -space-x-2">
-                  <img src="/images/team/avatar1.png" alt="Avatar 1" className="w-8 h-8 rounded-full border-2 border-white" />
-                  <img src="/images/team/avatar2.png" alt="Avatar 2" className="w-8 h-8 rounded-full border-2 border-white" />
-                  <img src="/images/team/avatar3.png" alt="Avatar 3" className="w-8 h-8 rounded-full border-2 border-white" />
-                  <img src="/images/team/avatar4.png" alt="Avatar 4" className="w-8 h-8 rounded-full border-2 border-white" />
-                  <span className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-semibold border-2 border-white">+65</span>
+                  <img src="/images/team/avatar1.png" alt="Avatar 1" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                  <img src="/images/team/avatar2.png" alt="Avatar 2" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                  <img src="/images/team/avatar3.png" alt="Avatar 3" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                  <img src="/images/team/avatar4.png" alt="Avatar 4" className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white" />
+                  <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs sm:text-sm font-semibold border-2 border-white">+65</span>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 {/* Stars */}
                 <span className="flex text-yellow-400 text-xl">
-                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
-                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
-                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
-                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
-                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
+                  <svg fill="currentColor" viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5"><polygon points="9.9,1.1 7.6,6.6 1.6,7.6 6,11.9 4.8,17.8 9.9,14.7 15,17.8 13.8,11.9 18.2,7.6 12.2,6.6 "/></svg>
                 </span>
                 <span className="font-semibold text-white ml-2">+65 happy clients</span>
               </div>
@@ -99,14 +99,14 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, type: 'spring' }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8 w-full px-2"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce text-lg sm:text-xl md:text-2xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 transform hover:scale-105 hover:shadow-xl transition-all duration-300 ease-in-out w-full sm:w-auto font-bold">
+            <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-400/20 animate-bounceOnce">
               <a href="https://calendly.com/webnexaai/30min" target="_blank" rel="noopener noreferrer">
-                Book a Call <ArrowRight className="ml-3 h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 transition-transform group-hover:translate-x-1" />
+                Book a Call <ArrowRight className="ml-2 h-4 w-4" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20 text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 transform hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-auto">
+            <Button asChild size="lg" variant="outline" className="rounded-full border-white/40 text-white bg-white/10 hover:bg-white/20">
               <Link href="#" target="_blank">
                 Watch Video
               </Link>
