@@ -193,7 +193,7 @@ export default function BlogPage() {
                   <span className="text-xs text-gray-400">{post.date}</span>
                 </CardHeader>
                 <CardContent className="flex flex-col flex-1">
-                  <Link href={post.link} className="hover:underline">
+                  <Link href={post.link} className="hover:underline" aria-label={`Read blog post: ${post.title}`}>
                     <CardTitle className="text-lg font-bold text-white mb-2 hover:text-blue-400 transition-colors">
                       {post.title}
                     </CardTitle>
@@ -201,8 +201,8 @@ export default function BlogPage() {
                   <p className="text-gray-300 text-sm mb-4 flex-1">{post.excerpt}</p>
                   <div className="flex items-center justify-between mt-auto">
                     <span className="text-xs text-gray-400">By {post.author}</span>
-                    <Link href={post.link} className="text-blue-400 hover:text-blue-300 text-xs font-medium flex items-center gap-1">
-                      Read More
+                    <Link href={post.link} className="text-blue-400 hover:text-blue-300 text-xs font-medium flex items-center gap-1" aria-label={`Read full post: ${post.title}`}>
+                      Read the full article
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </Link>
                   </div>
@@ -239,6 +239,11 @@ export default function BlogPage() {
             </Button>
           </form>
         </motion.div>
+
+        {/* Internal links at the end of the blog page */}
+        <div className="mt-12 text-center text-blue-300 text-sm">
+          <p>Looking for AI solutions for your business? <Link href="/services" className="underline hover:text-blue-400">Explore our AI automation & marketing services</Link> or <Link href="/contact" className="underline hover:text-blue-400">contact us for a free strategy call</Link>.</p>
+        </div>
       </main>
     </>
   );

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import { NextSeo } from 'next-seo';
 
 // Import components
 import HeroSection from "../src/components/home/hero-section";
@@ -69,34 +70,45 @@ const itemFadeIn = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative">
-      {/* 3D Background */}
-      <Suspense fallback={<div className="fixed inset-0 bg-black/90" />}>
-        <ThreeBackground />
-      </Suspense>
+    <>
+      <NextSeo
+        title="AI Automation & Marketing Agency | WebNexaAI"
+        description="WebNexaAI helps businesses scale with AI agents, workflow automations, lead-gen chatbots, and custom AI marketing systems."
+        canonical="https://webnexaai.com/"
+      />
+      <main className="min-h-screen relative">
+        {/* 3D Background */}
+        <Suspense fallback={<div className="fixed inset-0 bg-black/90" />}>
+          <ThreeBackground />
+        </Suspense>
 
-      {/* Hero Section */}
-      <HeroSection />
+        {/* Hero Section */}
+        <header>
+          <HeroSection />
+        </header>
 
-      {/* Unified Background for Testimonials & Portfolio */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src="/bg1.png"
-            alt="Background"
-            className="w-full h-full object-cover object-center"
-            style={{ minHeight: '100%', minWidth: '100%' }}
-          />
-        </div>
-        <TestimonialsSection />
-        <PortfolioSection />
-      </section>
+        {/* Unified Background for Testimonials & Portfolio */}
+        <section aria-label="Testimonials and Portfolio" className="relative overflow-hidden">
+          <div className="absolute inset-0 -z-10">
+            <img
+              src="/bg1.png"
+              alt="Background"
+              className="w-full h-full object-cover object-center"
+              style={{ minHeight: '100%', minWidth: '100%' }}
+            />
+          </div>
+          <TestimonialsSection />
+          <PortfolioSection />
+        </section>
 
-      {/* Services Section */}
-      <ServicesSection />
+        <section aria-label="Services">
+          <ServicesSection />
+        </section>
 
-      {/* Process Section */}
-      <ProcessSection />
-    </div>
+        <section aria-label="Process">
+          <ProcessSection />
+        </section>
+      </main>
+    </>
   );
 }

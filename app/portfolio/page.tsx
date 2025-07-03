@@ -7,6 +7,7 @@ import Link from "next/link";
 import AboutSection from "@/src/components/home/about-section";
 import { Button } from "@/src/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { NextSeo } from 'next-seo';
 
 const projects = [
   // Web Design & Development
@@ -186,37 +187,36 @@ const categories = [
 
 export default function PortfolioPage() {
   return (
-    <main className="min-h-screen relative">
-      {/* Background image with dark overlay - same as services page */}
-      <div className="absolute inset-0 -z-20">
-        <img
-          src="/background.jpg"
-          alt="Background"
-          className="w-full h-full object-cover object-center"
-          style={{ minHeight: '100%', minWidth: '100%' }}
-        />
-        <div className="absolute inset-0 bg-black/60" />
-      </div>
-      
-      {/* Additional atmospheric gradient */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
-      
-      {/* Subtle warm glow effect */}
-      <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
+    <>
+      <NextSeo
+        title="Portfolio | AI & Web Projects by WebNexaAI"
+        description="See how WebNexaAI delivers results with AI automation, chatbots, and high-performance websites for clients worldwide."
+        canonical="https://webnexaai.com/portfolio"
+      />
+      <main className="min-h-screen relative">
+        {/* Background image with dark overlay - same as services page */}
+        <div className="absolute inset-0 -z-20">
+          <img
+            src="/background.jpg"
+            alt="Background"
+            className="w-full h-full object-cover object-center"
+            style={{ minHeight: '100%', minWidth: '100%' }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        
+        {/* Additional atmospheric gradient */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black/70 via-transparent to-black/50"></div>
+        
+        {/* Subtle warm glow effect */}
+        <div className="absolute inset-0 -z-10 bg-gradient-radial from-blue-500/10 via-transparent to-slate-900/60"></div>
 
-      {/* Hero Section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 max-w-4xl relative z-10"
-      >
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+        <header>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Our Portfolio</h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             Explore our latest projects and see how we help businesses transform their digital presence.
           </p>
-        </div>
+        </header>
         
         {/* Collapsible Sections by Category */}
         <div className="space-y-8 sm:space-y-10">
@@ -284,7 +284,12 @@ export default function PortfolioPage() {
             <a href="https://calendly.com/webnexaai/30min" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
           </Button>
         </motion.div>
-      </motion.div>
-    </main>
+
+        {/* Internal links at the end of the portfolio page */}
+        <div className="mt-12 text-center text-blue-300 text-sm">
+          <p>Interested in similar results? <Link href="/services" className="underline hover:text-blue-400">Explore our AI automation & marketing services</Link> or <Link href="/contact" className="underline hover:text-blue-400">get in touch for a free consultation</Link>.</p>
+        </div>
+      </main>
+    </>
   );
 }

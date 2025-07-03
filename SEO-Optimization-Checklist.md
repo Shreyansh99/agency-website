@@ -15,11 +15,11 @@
 - [ ] 🔁 **Monitor crawl errors** in Google Search Console.
 
 ## 2. On-Page SEO Best Practices
-- [ ] **Unique, keyword-rich `<title>` and `<meta description>`** for every page (dynamic via `next-seo` or custom Head).
-- [ ] **Use semantic HTML5 structure** (`<header>`, `<main>`, `<footer>`, `<nav>`, etc.).
-- [ ] **Logical heading hierarchy** (`<h1>` per page, then `<h2>`, `<h3>`, etc.).
-- [ ] **Internal linking** between blog posts, services, and landing pages.
-- [ ] **Descriptive anchor text** for all links.
+- [x] **Unique, keyword-rich `<title>` and `<meta description>`** for every page (dynamic via `next-seo` or custom Head).
+- [x] **Use semantic HTML5 structure** (`<header>`, `<main>`, `<footer>`, `<nav>`, etc.).
+- [x] **Logical heading hierarchy** (`<h1>` per page, then `<h2>`, `<h3>`, etc.).
+- [x] **Internal linking** between blog posts, services, and landing pages.
+- [x] **Descriptive anchor text** for all links.
 - [ ] **Optimize images** with descriptive `alt` attributes.
 - [ ] **Breadcrumb navigation** for blog and service pages.
 - [x] **Mobile-friendly, responsive design** (Tailwind CSS).
